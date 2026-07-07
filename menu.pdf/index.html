@@ -35,17 +35,22 @@
     border-radius:18px;
     box-shadow:0 10px 40px rgba(0,0,0,.5);
   }
-  h1{
-    font-size:15px;
-    font-weight:500;
-    letter-spacing:.28em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:32px;
-  }
-  .langs{
+  .groups{
     width:100%;
     max-width:340px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+  }
+  .group-label{
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:12px;
+  }
+  .langs{
     display:flex;
     flex-direction:column;
     gap:14px;
@@ -78,6 +83,8 @@
     color:var(--muted);
     text-transform:uppercase;
   }
+  .lang--drinks{border-color:rgba(201,162,74,.45)}
+  .lang--drinks .ic{color:var(--gold);flex:0 0 auto}
   footer{
     margin-top:40px;
     font-size:12px;
@@ -101,14 +108,28 @@
   <div id="loading">Chargement…</div>
 
   <img class="logo" src="logo-antika.png" alt="Antika">
-  <h1>Kies je taal · Choisissez votre langue</h1>
 
-  <nav class="langs">
-    <a class="lang" href="menu-nl.pdf"><span class="flag">🇳🇱</span> Nederlands <span class="code">NL</span></a>
-    <a class="lang" href="menu-fr.pdf"><span class="flag">🇫🇷</span> Français <span class="code">FR</span></a>
-    <!-- Albanais : ajoutez menu-al.pdf dans ce dossier puis décommentez la ligne ci-dessous -->
-    <!-- <a class="lang" href="menu-al.pdf"><span class="flag">🇦🇱</span> Shqip <span class="code">AL</span></a> -->
-  </nav>
+  <div class="groups">
+    <section class="group">
+      <p class="group-label">Menu</p>
+      <nav class="langs">
+        <a class="lang" href="menu-nl.pdf"><span class="flag">🇳🇱</span> Nederlands <span class="code">NL</span></a>
+        <a class="lang" href="menu-fr.pdf"><span class="flag">🇫🇷</span> Français <span class="code">FR</span></a>
+        <!-- Albanais : ajoutez menu-al.pdf dans ce dossier puis décommentez la ligne ci-dessous -->
+        <!-- <a class="lang" href="menu-al.pdf"><span class="flag">🇦🇱</span> Shqip <span class="code">AL</span></a> -->
+      </nav>
+    </section>
+
+    <section class="group">
+      <p class="group-label">Dranken · Boissons</p>
+      <nav class="langs">
+        <a class="lang lang--drinks" href="boisson.pdf">
+          <svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-7 8z"/><path d="M12 12v7"/><path d="M8 21h8"/></svg>
+          Dranken · Boissons
+        </a>
+      </nav>
+    </section>
+  </div>
 
   <footer>Antika</footer>
 
