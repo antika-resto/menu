@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu — Antika</title>
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#161512;
+    --muted:#7a7268;
+    --faint:#a9a196;
+    --line:#ece8e1;
+    --line-strong:#ddd7cc;
+    --gold:#b08324;
+    --gold-soft:#c9a24a;
+    --card:#ffffff;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  }
+  img{display:block;max-width:100%}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:30;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top);
+  }
+  .bar{
+    max-width:680px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;padding:11px 16px;
+  }
+  .back{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:11px;
+    border:1px solid var(--line-strong);
+    color:var(--ink);text-decoration:none;flex:0 0 auto;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .back:active{background:#f6f3ee}
+  .brand{text-align:center;line-height:1;flex:1 1 auto;overflow:hidden}
+  .brand .name{
+    font-family:var(--serif);font-weight:600;
+    font-size:25px;letter-spacing:.02em;
+  }
+  .brand .sub{
+    font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--muted);margin-top:2px;
+  }
+  /* language chip + dropdown */
+  .lang-wrap{position:relative;flex:0 0 auto}
+  .lang-btn{
+    display:inline-flex;align-items:center;gap:7px;
+    height:38px;padding:0 12px;border-radius:11px;
+    border:1px solid var(--line-strong);background:#fff;
+    font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);
+    cursor:pointer;-webkit-tap-highlight-color:transparent;
+  }
+  .lang-btn .fl{font-size:16px;line-height:1}
+  .lang-btn .ca{color:var(--faint);font-size:10px;transition:transform .2s}
+  .lang-wrap.open .lang-btn .ca{transform:rotate(180deg)}
+  .lang-menu{
+    position:absolute;right:0;top:46px;min-width:172px;
+    background:#fff;border:1px solid var(--line-strong);border-radius:14px;
+    box-shadow:0 18px 44px rgba(30,24,10,.16);
+    padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .16s ease,transform .16s ease,visibility .16s;
+  }
+  .lang-wrap.open .lang-menu{opacity:1;visibility:visible;transform:none}
+  .lang-menu a{
+    display:flex;align-items:center;gap:11px;
+    padding:10px 12px;border-radius:9px;
+    text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;
+  }
+  .lang-menu a .fl{font-size:19px}
+  .lang-menu a:active{background:#f6f3ee}
+  .lang-menu a.on{color:var(--gold);font-weight:600}
+  .lang-menu a.on::after{content:"✓";margin-left:auto;color:var(--gold);font-size:13px}
+
+  /* ---------- Category nav ---------- */
+  .cats{
+    position:sticky;top:calc(61px + env(safe-area-inset-top));z-index:20;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .cats-inner{
+    max-width:680px;margin:0 auto;
+    display:flex;gap:8px;overflow-x:auto;
+    padding:10px 16px;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .cats-inner::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;white-space:nowrap;
+    padding:8px 15px;border-radius:999px;
+    border:1px solid var(--line-strong);background:#fff;
+    font-size:13px;font-weight:500;color:var(--muted);
+    text-decoration:none;-webkit-tap-highlight-color:transparent;
+    transition:all .18s ease;cursor:pointer;
+  }
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  /* ---------- Content ---------- */
+  main{max-width:680px;margin:0 auto;padding:0 16px}
+
+  .hero{text-align:center;padding:30px 6px 10px}
+  .hero .logo{width:110px;margin:0 auto 16px;opacity:.96}
+  .hero .lead{
+    font-family:var(--serif);font-style:italic;font-size:21px;
+    color:var(--ink);line-height:1.35;
+  }
+  .hero .lead .al{display:block;font-style:normal;font-size:14px;color:var(--gold);letter-spacing:.04em;margin-top:6px}
+  .hero .note{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.55}
+
+  section{padding-top:30px;scroll-margin-top:118px}
+  .sec-head{text-align:center;margin-bottom:20px}
+  .sec-head .t{
+    font-family:var(--serif);font-weight:600;font-size:30px;
+    letter-spacing:.01em;position:relative;display:inline-block;padding:0 2px;
+  }
+  .sec-head .s{
+    display:block;font-family:var(--sans);
+    font-size:10.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:9px;
+  }
+  .rule{
+    display:flex;align-items:center;justify-content:center;gap:10px;margin-top:11px;
+  }
+  .rule::before,.rule::after{content:"";height:1px;width:38px;background:var(--line-strong)}
+  .rule .dot{width:5px;height:5px;border-radius:50%;background:var(--gold-soft)}
+
+  .item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .item:last-child{border-bottom:0}
+  .item .txt{flex:1 1 auto;min-width:0}
+  .item .row1{
+    display:flex;align-items:baseline;gap:8px;
+  }
+  .item .nm{
+    font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.2;
+    letter-spacing:.01em;color:var(--ink);
+  }
+  .item .lead-dots{
+    flex:1 1 auto;border-bottom:1px dotted var(--line-strong);
+    transform:translateY(-3px);min-width:14px;
+  }
+  .item .pr{
+    font-family:var(--serif);font-weight:600;font-size:19px;
+    color:var(--gold);white-space:nowrap;flex:0 0 auto;
+  }
+  .item .pr small{font-size:11px;font-weight:500;color:var(--muted);font-family:var(--sans);letter-spacing:.02em}
+  .item .desc{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5;max-width:44ch}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .badge{
+    font-size:10.5px;font-weight:600;letter-spacing:.03em;
+    color:var(--gold);background:#faf5ea;border:1px solid #efe3c8;
+    padding:3px 9px;border-radius:999px;
+  }
+  .badge.day{color:#8a5a1e;background:#fbf1e4;border-color:#f0dcc2}
+  .item .ph{
+    flex:0 0 auto;width:92px;height:92px;border-radius:14px;
+    object-fit:cover;background:#f3efe8;
+    box-shadow:0 4px 14px rgba(40,30,10,.10);
+    cursor:zoom-in;-webkit-tap-highlight-color:transparent;
+  }
+  .item.nophoto .ph{display:none}
+
+  .foot-note{
+    font-size:12px;color:var(--muted);line-height:1.6;
+    background:#faf8f3;border:1px solid var(--line);border-radius:14px;
+    padding:13px 15px;margin-top:16px;
+  }
+  .foot-note b{color:var(--ink);font-weight:600}
+
+  footer{
+    text-align:center;margin-top:44px;padding-top:26px;
+    border-top:1px solid var(--line);
+  }
+  footer .fb{font-family:var(--serif);font-size:26px;font-weight:600}
+  footer .fs{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  footer .fw{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:16px;text-decoration:none;display:inline-block}
+
+  /* ---------- Lightbox ---------- */
+  .lb{
+    position:fixed;inset:0;z-index:60;
+    background:rgba(15,12,6,.92);
+    display:flex;align-items:center;justify-content:center;padding:24px;
+    opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s;
+  }
+  .lb.show{opacity:1;visibility:visible}
+  .lb img{max-width:100%;max-height:80vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb .cap{position:absolute;left:0;right:0;bottom:calc(28px + env(safe-area-inset-bottom));text-align:center;color:#f3efe7;font-family:var(--serif);font-size:20px;padding:0 24px}
+  .lb .x{position:absolute;top:calc(16px + env(safe-area-inset-top));right:18px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.3);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+
+  @media (min-width:560px){
+    .item .ph{width:104px;height:104px}
+    .item .nm{font-size:22px}
+    .hero .lead{font-size:24px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="back" href="index.html" aria-label="Retour">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="brand">
+      <div class="name">Antika</div>
+      <div class="sub">Molenveld</div>
+    </div>
+    <div class="lang-wrap" id="langWrap">
+      <button class="lang-btn" id="langBtn" aria-haspopup="true">
+        <span class="fl" id="langFlag">🇫🇷</span>
+        <span id="langCode">FR</span>
+        <span class="ca">▾</span>
+      </button>
+      <div class="lang-menu" id="langMenu"></div>
+    </div>
+  </div>
+  <div class="cats">
+    <div class="cats-inner" id="cats"></div>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<div class="lb" id="lb">
+  <div class="x" id="lbx">✕</div>
+  <img id="lbimg" src="" alt="">
+  <div class="cap" id="lbcap"></div>
+</div>
+
+<script>
+/* ============================================================
+   DONNÉES — prix & photos communs ; textes par langue
+   Pour ajouter une langue : compléter l'objet I18N.
+   ============================================================ */
+
+var LANGS = [
+  {code:"nl", flag:"🇳🇱", label:"Nederlands"},
+  {code:"fr", flag:"🇫🇷", label:"Français"},
+  {code:"en", flag:"🇬🇧", label:"English"},
+  {code:"al", flag:"🇦🇱", label:"Shqip"}
+];
+
+/* Structure du menu : sections -> items {k:clé, ph:photo, p:prix, pp:par pers, min2, tags[]} */
+var MENU = [
+  {id:"entrees", items:[
+    {k:"calamars", ph:"calamars", p:"11"},
+    {k:"croq_bruges", ph:"croquettes-bruges", p:"9"},
+    {k:"scampi", ph:"scampi-ail", p:"15"},
+    {k:"carpaccio", ph:"carpaccio-truffe", p:"15"},
+    {k:"tapas", ph:"tapas-plancha", p:"10", pp:true, tags:["min2"]},
+    {k:"croq_crevettes", ph:"croquettes-crevettes", p:"14"},
+    {k:"caesar", ph:"salade-caesar", p:"15"},
+    {k:"chevre", ph:"fromage-chevre", p:"16"}
+  ]},
+  {id:"pates", items:[
+    {k:"penne", ph:"penne-prosciutto", p:"16"},
+    {k:"serenade", ph:"pates-saumon", p:"18"},
+    {k:"aglio", ph:"aglio-olio", p:"14"},
+    {k:"teresa", ph:"pates-teresa", p:"15"}
+  ]},
+  {id:"grillade", note:true, items:[
+    {k:"poulet_grille", ph:"poulet-grille", p:"24"},
+    {k:"agneau", ph:"cotes-agneau", p:"31"},
+    {k:"filet_mignon", ph:"filet-mignon", p:"30"},
+    {k:"filet_pur", ph:"filet-pur", p:"35"}
+  ]},
+  {id:"mer", items:[
+    {k:"gambas", ph:"gambas", p:"25"},
+    {k:"daurade", ph:"daurade", p:"28"},
+    {k:"barre", ph:"barre", p:"27"},
+    {k:"saumon", ph:"saumon", p:"26"}
+  ]},
+  {id:"albanaises", items:[
+    {k:"pleskavica", ph:"pleskavica", p:"18"},
+    {k:"combi", ph:"combi-trio", p:"21"},
+    {k:"spicy", ph:"spicy-treasure", p:"27"},
+    {k:"dela_terra", ph:"dela-terra", p:"28", pp:true, tags:["min2"]},
+    {k:"dela_mare", ph:"dela-mare", p:"35", pp:true, tags:["min2"]}
+  ]},
+  {id:"burger", items:[
+    {k:"bigbaba", ph:"burger-bigbaba", p:"15"},
+    {k:"poulet_boeuf", ph:"burger-poulet-boeuf", p:"14"},
+    {k:"veggie", ph:"burger-veggie", p:"13"}
+  ]},
+  {id:"enfants", items:[
+    {k:"nuggets", ph:"nuggets", p:"10"},
+    {k:"pates_enfant", ph:"pates-enfant", p:"10"},
+    {k:"burger_enfant", ph:"burger-enfant", p:"10"}
+  ]},
+  {id:"sofra", items:[
+    {k:"brunch", ph:null, p:"20", pp:true, tags:["sunday1","min2"]},
+    {k:"sofra_art", ph:null, p:"25", pp:true, tags:["sunday2","min2"]},
+    {k:"fli", ph:"fli", p:"9"},
+    {k:"poivrons_rotis", ph:"poivrons-rotis", p:"12"},
+    {k:"qebapa", ph:null, p:"15"},
+    {k:"salade_paysanne", ph:null, p:"12"},
+    {k:"poivrons_saumures", ph:null, p:"7"},
+    {k:"tzatziki", ph:null, p:"6"}
+  ]}
+];
+
+var I18N = {
+  fr:{
+    ui:{ perPers:"/ pers.", min2:"min. 2 pers.", sunday1:"Dimanche · 10h–13h", sunday2:"Dimanche · 13h–21h",
+         group:"Pour les groupes de 6 personnes et plus, choix de 6 plats maximum.", web:"antikaresto.com" },
+    hero:{ lead:"Pain, sel & cœur.", al:"Bukë, kripë e zemër", note:"Un proverbe qui exprime parfaitement ce que représentent les Albanais." },
+    sections:{
+      entrees:{s:"Pour commencer", t:"Entrées"},
+      pates:{s:"Fait maison", t:"Pâtes"},
+      grillade:{s:"Du grill", t:"Grillades"},
+      mer:{s:"Fraîcheur", t:"De la Mer"},
+      albanaises:{s:"Nos racines", t:"Spécialités Albanaises"},
+      burger:{s:"Signature", t:"Burgers"},
+      enfants:{s:"Pour les petits", t:"Enfants"},
+      sofra:{s:"La table du dimanche", t:"Sofra"}
+    },
+    notes:{ grillade:"<b>Sauce au choix :</b> poivre · champignons · bouillon de viande.<br><b>Supplément accompagnement</b> (frites · pommes de terre · wedges) : € 2,5" },
+    items:{
+      calamars:{n:"Rondelles de calamars", d:"Anneaux de calamars enrobés d'une couche croquante de pâte."},
+      croq_bruges:{n:"Duo de croquettes de Bruges", d:"Croquettes au fromage crémeux, croûte croustillante, servies avec une salade."},
+      scampi:{n:"Scampi à l'ail suprême", d:"Scampis juteux dans une riche sauce au beurre à l'ail, avec pain croustillant."},
+      carpaccio:{n:"Carpaccio arôme de truffe", d:"Fines tranches de bœuf, roquette fraîche, parmesan et vinaigrette à la truffe."},
+      tapas:{n:"Tapas plancha", d:"Une sélection savoureuse de tapas sur une plancha traditionnelle."},
+      croq_crevettes:{n:"Duo de croquettes de crevettes", d:"Croquettes garnies d'une préparation crémeuse aux crevettes."},
+      caesar:{n:"Salade Caesar du village secret", d:"Poulet grillé, laitue romaine, parmesan, croûtons et vinaigrette César."},
+      chevre:{n:"Fromage de chèvre du paysan", d:"Salade de chèvre crémeux, touche de miel, fruits frais et vinaigrette délicate."},
+      penne:{n:"Penne crème au prosciutto", d:"Pâtes crémeuses au prosciutto de bœuf, sauce à la crème et huile de truffe."},
+      serenade:{n:"Sérénade de pâtes au saumon", d:"Saumon frais et pâtes al dente, herbes subtiles et sauce délicate."},
+      aglio:{n:"Pâtes aglio & olio delizia", d:"Huile d'olive, ail, flocons de piment, parmesan et herbes fraîches."},
+      teresa:{n:"Pâtes du village Teresa", d:"Les meilleurs légumes de saison, pâtes al dente et sauce savoureuse."},
+      poulet_grille:{n:"Filet de poulet grillé", d:"Filet de poulet grillé, servi avec salade fraîche et frites."},
+      agneau:{n:"Côtes d'agneau du village", d:"Côtelettes d'agneau, légumes grillés et pommes de terre."},
+      filet_mignon:{n:"Steak filet mignon", d:"Filet de bœuf tendre, servi avec frites et salade fraîche."},
+      filet_pur:{n:"Steak filet pur", d:"Filet pur, asperges grillées, purée de carottes à la crème de truffe."},
+      gambas:{n:"Gambas grillées du chef", d:"Assaisonnées, sauce au beurre de citron, croquettes et salade fraîche."},
+      daurade:{n:"Daurade", d:"Daurade fraîche grillée à la perfection, légumes, pommes de terre, sauce beurre-citron."},
+      barre:{n:"Barre", d:"Filet de poisson raffiné grillé à la méditerranéenne, purée de brocoli et légumes verts."},
+      saumon:{n:"Saumon", d:"Filet de saumon grillé, salade d'agrumes, patates douces et sauce vierge."},
+      pleskavica:{n:"Pleskavica farcie sensation", d:"Pleskavica de bœuf farcie feta & mozzarella, frites, pita maison et sauce."},
+      combi:{n:"Combi trio grill", d:"Qebapa · kofte · poulet / chorizo, salade fraîche, tzatziki maison, pain plat."},
+      spicy:{n:"Antika's spicy treasure", d:"Hommage épicé à la Méditerranée, panier de pâte croustillant, pommes de terre et poulet grillé."},
+      dela_terra:{n:"Dela Terra — Kosova Grill", d:"Plateau de viandes grillées inspiré des montagnes du Kosovo, garnitures et légumes illyriens."},
+      dela_mare:{n:"Dela Mare — Grill Albanais", d:"Plateau raffiné de poissons et fruits de mer grillés, garnitures et légumes."},
+      bigbaba:{n:"BBB — Big Baba", d:"Double burger & fromage, pain spécial, sauce burger et frites."},
+      poulet_boeuf:{n:"Poulet et Bœuf", d:"Burger poulet et bœuf, pain brioche, sauce spéciale et frites."},
+      veggie:{n:"Viva Veggie", d:"Burger végétarien aux légumes, pain brioche, sauce burger et frites."},
+      nuggets:{n:"Nuggets", d:"6 nuggets avec frites et sauce au choix."},
+      pates_enfant:{n:"Pâtes enfant", d:"Pâtes enfant avec garnitures et sauce au choix."},
+      burger_enfant:{n:"Burger enfant", d:"Burger enfant avec frites, garnitures et sauce au choix."},
+      brunch:{n:"Petit-déjeuner & brunch", d:"Petit-déjeuner authentique inspiré des traditions d'Albanie et du Kosovo."},
+      sofra_art:{n:"Sofra artisanale", d:"Table balkanique : viandes grillées, pâtes spéciales, pain frais et garnitures traditionnelles."},
+      fli:{n:"Fli — crêpe albanaise", d:"Fines crêpes empilées, garniture crémeuse de yaourt et fromage."},
+      poivrons_rotis:{n:"Poivrons rôtis, crème & feta", d:"Poivrons rôtis dans une sauce crémeuse à la crème et à la feta."},
+      qebapa:{n:"Qebapa", d:"Dix petites saucisses grillées de bœuf épicé, spécialité albanaise."},
+      salade_paysanne:{n:"Salade paysanne albanaise", d:"Légumes locaux frais, vinaigrette savoureuse, olives et feta."},
+      poivrons_saumures:{n:"Poivrons saumurés au yaourt", d:"Poivrons saumurés servis avec un yaourt crémeux et épais."},
+      tzatziki:{n:"Yaourt à l'ail — Tzatziki", d:"Yaourt crémeux à l'ail aromatique, en dip ou en accompagnement."}
+    }
+  },
+
+  nl:{
+    ui:{ perPers:"/ pers.", min2:"min. 2 pers.", sunday1:"Zondag · 10u–13u", sunday2:"Zondag · 13u–21u",
+         group:"Voor groepen van 6 personen of meer: keuze uit maximaal 6 verschillende gerechten.", web:"antikaresto.com" },
+    hero:{ lead:"Brood, zout & hart.", al:"Bukë, kripë e zemer", note:"Dit spreekwoord drukt perfect uit wat de Albanezen vertegenwoordigen." },
+    sections:{
+      entrees:{s:"Om te beginnen", t:"Voorgerechten"},
+      pates:{s:"Huisgemaakt", t:"Pasta"},
+      grillade:{s:"Van de grill", t:"Van de Grill"},
+      mer:{s:"Vers", t:"Van de Zee"},
+      albanaises:{s:"Onze wortels", t:"Albanese Specialiteiten"},
+      burger:{s:"Signature", t:"Burgers"},
+      enfants:{s:"Voor de kleintjes", t:"Kinderen"},
+      sofra:{s:"De zondagstafel", t:"Sofra"}
+    },
+    notes:{ grillade:"<b>Saus naar keuze:</b> peperroom · champignonroom · vleesbouillon.<br><b>Extra bijgerecht</b> (friet · aardappelen · wedges) : € 2,5" },
+    items:{
+      calamars:{n:"Octo rings", d:"Calamaresringen, elk omhuld met een knapperige laag deeg."},
+      croq_bruges:{n:"Duo van Brugse kaaskroketten", d:"Kroketten gevuld met romige kaas, krokante korst, geserveerd met een heerlijke salade."},
+      scampi:{n:"Scampi's à la ajo supreme", d:"Sappige scampi's in een rijke lookbotersaus, met knapperig brood om te dippen."},
+      carpaccio:{n:"Truffelaroma carpaccio", d:"Dunne plakjes mals rundvlees, verse rucola, geschaafde Parmezaan en truffeldressing."},
+      tapas:{n:"Tapas plancha", d:"Een bruisende selectie van tapas op een traditionele plancha."},
+      croq_crevettes:{n:"Duo van garnaalkroketten", d:"Twee krokante garnaalkroketten, gevuld met een romige garnaalvulling."},
+      caesar:{n:"Caesar's secret village salade", d:"Gegrilde kip, romeinse sla, Parmezaan, croutons en heerlijke Caesardressing."},
+      chevre:{n:"Herder geitenkaas salade", d:"Romige geitenkaas met een subtiele hint van honing, vers fruit en een delicate dressing."},
+      penne:{n:"Penne panna e prosciutto", d:"Romige pasta met runds prosciutto, roomsaus en truffelolie."},
+      serenade:{n:"Serenade van zalm pasta", d:"Harmonieus samenspel van verse zalm en al dente pasta, subtiele kruiden en heerlijke saus."},
+      aglio:{n:"Aglio & olio delizia pasta", d:"Al dente pasta met olijfolie, knoflook, chilivlokken, Parmezaan en verse kruiden."},
+      teresa:{n:"Teresa village pasta", d:"De beste seizoensgroenten, gecombineerd met al dente pasta en een smaakvolle saus."},
+      poulet_grille:{n:"Gegrilde kipfilet", d:"Malse kipfilet, gegrild en geserveerd met een frisse salade en frieten."},
+      agneau:{n:"Village lamskoteletten", d:"Sappige lamskoteletten met gegrilde groenten en aardappelen."},
+      filet_mignon:{n:"Steak filet mignon", d:"Malse biefstukfilet, geserveerd met frieten en een frisse salade."},
+      filet_pur:{n:"Steak filet pur", d:"Filet pur met gegrilde asperges en truffelcrème-wortelpuree, op mediterrane wijze."},
+      gambas:{n:"Gegrilde gambas van de chef", d:"Perfect gekruid met citroenbotersaus, kroketten en een frisse salade."},
+      daurade:{n:"Dorade", d:"Frisse, delicate dorade in zijn geheel, gegrild met groenten, aardappelen en citroenbotersaus."},
+      barre:{n:"Zeebaars", d:"Verfijnde visfilet, mediterraans gegrild, met broccolipuree en groene seizoensgroenten."},
+      saumon:{n:"Zalmfilet", d:"Malse gegrilde zalmfilet, citrussalade, zoete aardappelen en sauce vierge."},
+      pleskavica:{n:"Gevulde pleskavica sensatie", d:"Pleskavica gevuld met feta & mozzarella, frieten, huisgemaakte pita en dipsaus."},
+      combi:{n:"Kombi trio grill", d:"Qebapa · kofte · kipfilet / chorizo, frisse salade, huisgemaakte tzatziki, in een deegbord."},
+      spicy:{n:"Antika's spicy treasure", d:"Smaakvol eerbetoon aan de mediterrane keuken, knapperig deegbord, aardappelen en gegrilde kip."},
+      dela_terra:{n:"Dela Terra — Kosova Grill", d:"Robuust vleesplateau geïnspireerd op de Kosovaarse keuken, illyrische bijgerechten en groenten."},
+      dela_mare:{n:"Dela Mare — Albanian Grill", d:"Verfijnd plateau van gegrilde vis en schaaldieren, met bijgerechten en groenten."},
+      bigbaba:{n:"BBB — Big Baba", d:"Dubbele burger & kaas, speciaal broodje, burgersaus en frieten."},
+      poulet_boeuf:{n:"Chicken Beef", d:"Kip- en rundsburger, briochebroodje, speciale saus en frieten."},
+      veggie:{n:"Viva Veggie", d:"Groenten-veggieburger, briochebroodje, burgersaus en frieten."},
+      nuggets:{n:"Nuggets", d:"6 nuggets met frietjes en saus naar keuze."},
+      pates_enfant:{n:"Kids pasta", d:"Kinderpasta met topping en saus naar keuze."},
+      burger_enfant:{n:"Kids burger", d:"Kinderburger met frietjes, topping en saus naar keuze."},
+      brunch:{n:"Artisan ontbijt & brunch", d:"Authentiek ontbijt geïnspireerd op de tradities van Albanië en Kosovo."},
+      sofra_art:{n:"Artisan Balkan sofra", d:"Weelderige Balkantafel: gegrild vlees, speciale deegwaren, vers brood en traditionele bijgerechten."},
+      fli:{n:"Fli — traditionele Albanese pannenkoek", d:"Dunne, gestapelde pannenkoeken met romige vulling van yoghurt en kaas."},
+      poivrons_rotis:{n:"Gebakken paprika's met room en feta", d:"Gebakken paprika's in een romige saus van room en feta."},
+      qebapa:{n:"Qebapa — Albanese gegrilde worstjes", d:"Tien sappige gegrilde worstjes van gekruid rundvlees, een Albanese lekkernij."},
+      salade_paysanne:{n:"Albanese herder salade", d:"Frisse salade met lokale groenten, smaakvolle dressing, olijven en feta."},
+      poivrons_saumures:{n:"Gepekelde paprika's met yoghurt", d:"Gepekelde paprika's met romige, dikke yoghurt — zout en fris."},
+      tzatziki:{n:"Yoghurt met knoflook — tzatziki", d:"Romige yoghurt met aromatische knoflook, als dip of bijgerecht."}
+    }
+  },
+
+  en:{
+    ui:{ perPers:"/ pers.", min2:"min. 2 pers.", sunday1:"Sunday · 10am–1pm", sunday2:"Sunday · 1pm–9pm",
+         group:"For groups of 6 or more, choose from up to 6 different dishes.", web:"antikaresto.com" },
+    hero:{ lead:"Bread, salt & heart.", al:"Bukë, kripë e zemer", note:"This proverb perfectly expresses what the Albanians represent." },
+    sections:{
+      entrees:{s:"To start", t:"Starters"},
+      pates:{s:"Homemade", t:"Pasta"},
+      grillade:{s:"From the grill", t:"From the Grill"},
+      mer:{s:"Fresh", t:"From the Sea"},
+      albanaises:{s:"Our roots", t:"Albanian Specials"},
+      burger:{s:"Signature", t:"Burgers"},
+      enfants:{s:"For the little ones", t:"Kids"},
+      sofra:{s:"The Sunday table", t:"Sofra"}
+    },
+    notes:{ grillade:"<b>Choose your sauce:</b> pepper cream · mushroom cream · beef broth.<br><b>Extra sides</b> (fries · potatoes · wedges) : € 2.5" },
+    items:{
+      calamars:{n:"Octo rings", d:"Calamari rings, each coated with a crispy layer of batter."},
+      croq_bruges:{n:"Duo of Bruges cheese croquettes", d:"Croquettes filled with creamy cheese, crispy crust, served with a delicious salad."},
+      scampi:{n:"Scampi à l'ail suprême", d:"Succulent scampi in a rich garlic butter sauce, with crispy bread to dip."},
+      carpaccio:{n:"Truffle flavored carpaccio", d:"Thin slices of tender beef, fresh arugula, shaved Parmesan and a truffle dressing."},
+      tapas:{n:"Tapas plancha", d:"A sparkling selection of tapas on a traditional plancha."},
+      croq_crevettes:{n:"Duo of shrimp croquettes", d:"Two crispy shrimp croquettes, filled with a creamy shrimp filling."},
+      caesar:{n:"Caesar's secret village salad", d:"Grilled chicken, romaine lettuce, Parmesan, croutons and delicious Caesar dressing."},
+      chevre:{n:"Herder goat cheese salad", d:"Creamy goat cheese with a hint of honey, refreshing fruit and a delicate dressing."},
+      penne:{n:"Penne panna e prosciutto", d:"Creamy pasta with beef prosciutto, cream sauce and truffle oil."},
+      serenade:{n:"Serenade of salmon pasta", d:"A harmonious blend of fresh salmon and al dente pasta, subtle herbs and a delicious sauce."},
+      aglio:{n:"Aglio & olio delizia pasta", d:"Al dente pasta with olive oil, garlic, chili flakes, a touch of Parmesan and fresh herbs."},
+      teresa:{n:"Teresa village pasta", d:"The best seasonal vegetables combined with al dente pasta and a flavorful sauce."},
+      poulet_grille:{n:"Grilled chicken breast", d:"Tender chicken breast, grilled and served with a fresh salad and fries."},
+      agneau:{n:"Village lamb chops", d:"Juicy lamb chops with grilled vegetables and potatoes."},
+      filet_mignon:{n:"Steak filet mignon", d:"Tender beef steak, served with fries and a fresh salad."},
+      filet_pur:{n:"Steak filet pur", d:"Filet mignon with grilled asparagus and truffle cream carrot purée, Mediterranean style."},
+      gambas:{n:"Grilled chef's gambas", d:"Perfectly seasoned with a lemon butter sauce, croquettes and a fresh salad."},
+      daurade:{n:"Seabream", d:"Fresh, delicate whole dorade, grilled with vegetables, potatoes and a light lemon butter sauce."},
+      barre:{n:"Seabass", d:"A refined fish fillet grilled Mediterranean style, with broccoli purée and green seasonal vegetables."},
+      saumon:{n:"Salmon", d:"Tender grilled salmon fillet, citrus fruit salad, sweet potatoes and sauce vierge."},
+      pleskavica:{n:"Stuffed pleskavica sensation", d:"Beef patty stuffed with feta & mozzarella, fries, homemade pita and dipping sauce."},
+      combi:{n:"Kombi trio grill", d:"Qebapa · kofte · chicken / chorizo, fresh salad, homemade tzatziki, in a dough bowl."},
+      spicy:{n:"Antika's spicy treasure", d:"A flavorful tribute to Mediterranean cuisine, crispy dough bowl, potatoes and grilled chicken."},
+      dela_terra:{n:"Dela Terra — Kosova Grill", d:"Robust grilled meat platter inspired by Kosovar cuisine, with Illyrian sides and vegetables."},
+      dela_mare:{n:"Dela Mare — Albanian Grill", d:"A refined platter of grilled fish and shellfish, served with sides and vegetables."},
+      bigbaba:{n:"BBB — Big Baba", d:"Double burger & cheese, special bun, burger sauce and fries."},
+      poulet_boeuf:{n:"Chicken Beef", d:"Chicken & beef burger, brioche bun, special sauce and fries."},
+      veggie:{n:"Viva Veggie", d:"The veggie burger, brioche bun, burger sauce and fries."},
+      nuggets:{n:"Nuggets", d:"6 nuggets with fries and sauce of your choice."},
+      pates_enfant:{n:"Kids pasta", d:"Kids' pasta with toppings and sauce of your choice."},
+      burger_enfant:{n:"Kids burger", d:"Kids' burger with fries, toppings and sauce of your choice."},
+      brunch:{n:"Artisan breakfast & brunch", d:"An authentic breakfast inspired by the traditions of Albania and Kosovo."},
+      sofra_art:{n:"Artisan Balkan sofra", d:"A lavish Balkan table: grilled meats, special pastries, fresh bread and traditional sides."},
+      fli:{n:"Fli — traditional Albanian pancake", d:"Thin, stacked pancakes with a creamy, savory filling of yogurt and cheese."},
+      poivrons_rotis:{n:"Roasted peppers with cream and feta", d:"Delicious roasted peppers in a creamy sauce of cream and feta."},
+      qebapa:{n:"Qebapa — Albanian grilled sausages", d:"Ten juicy grilled sausages of seasoned beef, a popular Albanian treat."},
+      salade_paysanne:{n:"Albanian shepherd salad", d:"A fresh salad of local vegetables, flavorful dressing, olives and feta."},
+      poivrons_saumures:{n:"Pickled peppers with yogurt", d:"Pickled peppers served with creamy, thick yogurt — salty and fresh."},
+      tzatziki:{n:"Yogurt with garlic — tzatziki", d:"Creamy yogurt mixed with aromatic garlic, as a dip or a side."}
+    }
+  },
+
+  al:{
+    ui:{ perPers:"/ pers.", min2:"min. 2 persona", sunday1:"Të dielën · 10:00–13:00", sunday2:"Të dielën · 13:00–21:00",
+         group:"Për grupet prej 6 personash ose më shumë, zgjedhje deri në 6 pjata të ndryshme.", web:"antikaresto.com" },
+    hero:{ lead:"Bukë, kripë & zemër.", al:"Bukë, kripë e zemer", note:"Ky fjalëthënie shpreh përkryer se çfarë përfaqësojnë shqiptarët." },
+    sections:{
+      entrees:{s:"Për të filluar", t:"Antipasta"},
+      pates:{s:"Shtëpiake", t:"Pasta"},
+      grillade:{s:"Nga grilli", t:"Nga Grilli"},
+      mer:{s:"Të freskëta", t:"Nga Deti"},
+      albanaises:{s:"Rrënjët tona", t:"Specialitete Shqiptare"},
+      burger:{s:"Signature", t:"Burgera"},
+      enfants:{s:"Për të vegjlit", t:"Fëmijët"},
+      sofra:{s:"Tryeza e së dielës", t:"Sofra"}
+    },
+    notes:{ grillade:"<b>Zgjidh salcën tënde:</b> salcë piper · salcë kërpudhash · salcë lëng mishi.<br><b>Pjata shtesë</b> (patate të skuqura · patate · wedges) : € 2,5" },
+    items:{
+      calamars:{n:"Ringjat e oktapodit", d:"Ringjat e kalamares, secila e mbuluar me një shtresë krokante brumi."},
+      croq_bruges:{n:"Duo kroketash me djathë Brugge", d:"Kroketa të mbushura me djathë kremoz, lëvore krokante, të shërbyera me sallatë të shijshme."},
+      scampi:{n:"Scampi me ajë supreme", d:"Scampi të shijshme në salcë të pasur me gjalpë dhe hudhër, me bukë krokante për t'u ngjyer."},
+      carpaccio:{n:"Carpaccio me aromë trufe", d:"Fletë të holla mish viçi, rukola të freskët, djathë parmezan dhe vaj me aromë trufe."},
+      tapas:{n:"Tapas plancha", d:"Një përzgjedhje tapasi në një planxha tradicionale."},
+      croq_crevettes:{n:"Duo kroketash me garnale", d:"Dy kroketë krokante me garnale, të mbushura me një mbushje kremoze me garnale."},
+      caesar:{n:"Sallatë Caesar e fshatit", d:"Pulë e pjekur, sallatë romaine, djathë parmezan, krostina dhe salcë Caesar."},
+      chevre:{n:"Sallatë me djathë dhie", d:"Djathë dhie i kremëzuar me një shenjë delikate mjalti, fruta të freskëta dhe salcë delikate."},
+      penne:{n:"Penne panna dhe pershutë", d:"Pasta kremoze me prosciutto viçi, salcë kremoze dhe vaj trufe."},
+      serenade:{n:"Pasta serenade me salmon", d:"Bashkëpunim harmonik i salmonit të freskët dhe pastës al dente, erëza delikate dhe salcë e shijshme."},
+      aglio:{n:"Aglio & olio delizia pasta", d:"Pasta al dente me salcë vaj ulliri, hudhër dhe vaj djegës, prekje djathi parmezan dhe erëza të freskëta."},
+      teresa:{n:"Pasta me perime — Teresa", d:"Perimet më të mira të stinës, të kombinuara me pasta al dente dhe salcë me shije."},
+      poulet_grille:{n:"Filet pule në grill", d:"Pulë e pjekur në grill, e shërbyer me sallatë të freskët dhe patate."},
+      agneau:{n:"Kotleta qingj fshati", d:"Kotleta qingji të shijshme me perime të pjekura dhe patate."},
+      filet_mignon:{n:"Steak filet mignon", d:"Biftek i butë, i shërbyer me patate të skuqura dhe sallatë të freskët."},
+      filet_pur:{n:"Steak filet pur", d:"Filet pur me shpargje të pjekura, pure karotash me krem trufe, në stilin mesdhetar."},
+      gambas:{n:"Gambas të pjekura nga shefi", d:"Të aromatizuara në mënyrë perfekte me salcë gjalpi dhe limoni, kroketë dhe sallatë të freskët."},
+      daurade:{n:"Doradë", d:"Doradë e freskët e pjekur në tërësi me perime, patate dhe salcë e lehtë gjalpi e limoni."},
+      barre:{n:"Bar deti", d:"Fileto peshku e rafinuar, e pjekur në stilin mesdhetar, me pure brokoli dhe perime të freskëta të stinës."},
+      saumon:{n:"Salmon", d:"Fileto salmoni e butë e pjekur në grilë, me fruta agrume, patate të ëmbla dhe salcë natyrale vierge."},
+      pleskavica:{n:"Pleskavicë e mbushur", d:"Pleskavicë viçi e mbushur me djathë feta dhe mozzarella, patate të skuqura dhe salcë kremoze."},
+      combi:{n:"Kombinim zgarë", d:"Tre lloje mishi: qebapa · kofte · pulë / suxhuk, sallatë e freskët, kos me hudhër, në pjatë brumi."},
+      spicy:{n:"Pasuri shtëpije Antika", d:"Homazh i shijshëm për kuzhinën mesdhetare, në pjatë brumi krokante me patate dhe copa pule të pjekura."},
+      dela_terra:{n:"Dela Tera — Kosova Grill", d:"Pjatë e pasur mishi e frymëzuar nga traditat e Kosovës, me anësoqërues ilirë dhe perime."},
+      dela_mare:{n:"Dela Mare — Shqipëria Grill", d:"Pjatë e rafinuar e frymëzuar nga detet e Shqipërisë, me peshq dhe frutash deti të pjekura."},
+      bigbaba:{n:"BBB — Big Baba", d:"Burger dyfish me djathë, bukë speciale, salcë burger dhe patate të skuqura."},
+      poulet_boeuf:{n:"Pulë & Burger", d:"Burger pulë dhe viçi në bukë brioche, salcë speciale dhe patate të skuqura."},
+      veggie:{n:"Viva Veggie", d:"Burger perime veggie në bukë brioche, salcë burger dhe patate të skuqura."},
+      nuggets:{n:"Nuggets", d:"6 nuggets me patate të skuqura dhe salcë sipas zgjedhjes."},
+      pates_enfant:{n:"Pasta fëmijë", d:"Pasta për fëmijë me toping dhe salcë sipas zgjedhjes."},
+      burger_enfant:{n:"Burger fëmijë", d:"Burger për fëmijë me patate të skuqura, toping dhe salcë sipas zgjedhjes."},
+      brunch:{n:"Mëngjes & brunch artizanal", d:"Mëngjes autentik i frymëzuar nga traditat e Shqipërisë dhe Kosovës."},
+      sofra_art:{n:"Sofra artizanale", d:"Sofra ballkanike: mish të pjekur, pjata speciale me brumë, bukë e sapopjekur dhe anësoqërues tradicionalë."},
+      fli:{n:"Fli — recetë tradicionale kosovare", d:"Fli të shtresuara, të shërbyera me mbushje kremoze e të kripur me djathë dhe jogurt."},
+      poivrons_rotis:{n:"Speca me gjizë", d:"Speca të pjekura në salcë kremoze me krem dhe djathë feta."},
+      qebapa:{n:"Qebapa — nga Kosova", d:"Dhjetë qebapa të shijshme të bëra nga mishi i viçit të aromatizuar, delikatesë shqiptare."},
+      salade_paysanne:{n:"Sallatë qobona", d:"Sallatë e freskët me perime lokale, salcë e shijshme, ullinj dhe djathë feta."},
+      poivrons_saumures:{n:"Speca me ajkë", d:"Speca të turshi të shërbyera me kos të trashë kremoz — të kripur dhe të freskët."},
+      tzatziki:{n:"Kos me hudhër — tzatziki", d:"Kos kremoz i përzier me hudhër aromatik, si salcë dip ose anësoqërues."}
+    }
+  }
+};
+
+/* ============================================================
+   MOTEUR DE RENDU
+   ============================================================ */
+var PHOTOS = "photos/";
+
+function getLang(){
+  var p = new URLSearchParams(location.search).get("lang");
+  if(p && I18N[p]) return p;
+  return "fr";
+}
+
+function render(lang){
+  var L = I18N[lang] || I18N.fr;
+  document.documentElement.lang = lang;
+
+  // header lang chip
+  var cur = LANGS.filter(function(x){return x.code===lang})[0] || LANGS[1];
+  document.getElementById("langFlag").textContent = cur.flag;
+  document.getElementById("langCode").textContent = cur.code.toUpperCase();
+
+  // lang menu
+  document.getElementById("langMenu").innerHTML = LANGS.map(function(x){
+    return '<a class="'+(x.code===lang?"on":"")+'" href="?lang='+x.code+'"><span class="fl">'+x.flag+'</span>'+x.label+'</a>';
+  }).join("");
+
+  // category chips
+  document.getElementById("cats").innerHTML = MENU.map(function(sec){
+    return '<a class="chip" data-sec="'+sec.id+'" href="#'+sec.id+'">'+L.sections[sec.id].t+'</a>';
+  }).join("");
+
+  // hero
+  var html = ''+
+    '<div class="hero">'+
+      '<img class="logo" src="logo-antika.png" alt="Antika">'+
+      '<div class="lead">'+L.hero.lead+'<span class="al">'+L.hero.al+'</span></div>'+
+      '<div class="note">'+L.hero.note+'</div>'+
+    '</div>';
+
+  // sections
+  MENU.forEach(function(sec){
+    var st = L.sections[sec.id];
+    html += '<section id="'+sec.id+'">'+
+      '<div class="sec-head"><span class="s">'+st.s+'</span>'+
+      '<div class="t">'+st.t+'</div>'+
+      '<div class="rule"><span class="dot"></span></div></div>';
+
+    sec.items.forEach(function(it){
+      var t = L.items[it.k] || {n:it.k, d:""};
+      var priceExtra = it.pp ? ' <small>'+L.ui.perPers+'</small>' : '';
+      var badges = "";
+      if(it.tags){
+        badges = '<div class="badges">'+it.tags.map(function(tg){
+          if(tg==="min2") return '<span class="badge">'+L.ui.min2+'</span>';
+          if(tg==="sunday1") return '<span class="badge day">'+L.ui.sunday1+'</span>';
+          if(tg==="sunday2") return '<span class="badge day">'+L.ui.sunday2+'</span>';
+          return "";
+        }).join("")+'</div>';
+      }
+      var img = it.ph ? '<img class="ph" loading="lazy" src="'+PHOTOS+it.ph+'.jpg" alt="'+t.n+'" data-cap="'+t.n+'">' : '';
+      html += '<div class="item'+(it.ph?"":" nophoto")+'">'+
+          '<div class="txt">'+
+            '<div class="row1"><span class="nm">'+t.n+'</span><span class="lead-dots"></span>'+
+              '<span class="pr">€ '+it.p+priceExtra+'</span></div>'+
+            (t.d?'<div class="desc">'+t.d+'</div>':'')+
+            badges+
+          '</div>'+
+          img+
+        '</div>';
+    });
+
+    if(sec.note && L.notes[sec.id]){
+      html += '<div class="foot-note">'+L.notes[sec.id]+'</div>';
+    }
+    html += '</section>';
+  });
+
+  // footer
+  html += '<footer>'+
+      '<div class="fb">Antika</div>'+
+      '<div class="fs">Resto · Lounge · Bar · Event</div>'+
+      '<div class="note" style="max-width:420px;margin:14px auto 0">'+L.ui.group+'</div>'+
+      '<a class="fw" href="https://www.'+L.ui.web+'" target="_blank" rel="noopener">'+L.ui.web+'</a>'+
+    '</footer>';
+
+  document.getElementById("main").innerHTML = html;
+  wireLightbox();
+  wireScrollSpy();
+}
+
+/* language dropdown */
+var lw = document.getElementById("langWrap");
+document.getElementById("langBtn").addEventListener("click", function(e){
+  e.stopPropagation(); lw.classList.toggle("open");
+});
+document.addEventListener("click", function(){ lw.classList.remove("open"); });
+
+/* lightbox */
+function wireLightbox(){
+  var lb=document.getElementById("lb"), img=document.getElementById("lbimg"), cap=document.getElementById("lbcap");
+  document.querySelectorAll(".item .ph").forEach(function(el){
+    el.addEventListener("click", function(){
+      img.src=el.src; cap.textContent=el.getAttribute("data-cap")||""; lb.classList.add("show");
+    });
+  });
+  function close(){ lb.classList.remove("show"); img.src=""; }
+  document.getElementById("lbx").addEventListener("click", close);
+  lb.addEventListener("click", function(e){ if(e.target===lb) close(); });
+}
+
+/* scroll-spy for category chips */
+function wireScrollSpy(){
+  var chips = [].slice.call(document.querySelectorAll(".chip"));
+  var secs = MENU.map(function(s){return document.getElementById(s.id)});
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var id=en.target.id;
+        chips.forEach(function(c){ c.classList.toggle("active", c.getAttribute("data-sec")===id); });
+        var active=document.querySelector(".chip.active");
+        if(active) active.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+      }
+    });
+  },{rootMargin:"-120px 0px -70% 0px",threshold:0});
+  secs.forEach(function(s){ if(s) obs.observe(s); });
+
+  chips.forEach(function(c){
+    c.addEventListener("click", function(e){
+      e.preventDefault();
+      var t=document.getElementById(c.getAttribute("data-sec"));
+      if(t) window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-112,behavior:"smooth"});
+    });
+  });
+}
+
+render(getLang());
+</script>
+</body>
+</html>
