@@ -44,7 +44,7 @@ window.DESSERTS = {
       {k:"baileys", n:"Baileys", p:"7,50"},
       {k:"calvados", n:"Calvados", p:"9,00"},
       {k:"cointreau", n:"Cointreau", p:"7,70"},
-      {k:"don_papa", n:"Don Papa", p:"13,00"},
+      {k:"don_papa", n:"Don Papa", p:"14,50"},
       {k:"limoncello", n:"Limoncello", p:"7,50"},
       {k:"grappa", n:"Grappa", p:"7,90"},
       {k:"jack", n:"Jack Daniel's", p:"8,50"},
