@@ -41,7 +41,7 @@ window.DESSERTS = {
       {k:"amaretto", n:"Amaretto", p:"7,50"},
       {k:"amaretto_velvet", n:"Amaretto Velvet", p:"7,50"},
       {k:"grand_marnier", n:"Grand Marnier", p:"8,50"},
-      {k:"baileys", n:"Baileys", p:"7,50"},
+      {k:"baileys", n:"Baileys", p:"7,50", logo:"baileys.png"},
       {k:"calvados", n:"Calvados", p:"9,00"},
       {k:"cointreau", n:"Cointreau", p:"7,70"},
       {k:"don_papa", n:"Don Papa", p:"14,50"},
