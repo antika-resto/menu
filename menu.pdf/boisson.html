@@ -170,6 +170,15 @@
     font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.2;
     letter-spacing:.01em;color:var(--ink);flex:0 1 auto;
   }
+  a.nmlink{
+    text-decoration:none;color:var(--ink);
+    -webkit-tap-highlight-color:transparent;
+  }
+  a.nmlink .extico{
+    width:13px;height:13px;margin-left:5px;
+    color:var(--gold);vertical-align:baseline;position:relative;top:1px;
+  }
+  a.nmlink:active{color:var(--gold)}
   .zero{
     flex:0 0 auto;font-size:10px;font-weight:700;letter-spacing:.02em;
     color:var(--gold);background:#faf5ea;border:1px solid #efe3c8;
@@ -264,6 +273,10 @@ function renderItem(it, L, secId){
   var tile = '<span class="ic-tile">'+window.drinkIcon(secId)+'</span>';
   var zero = it.z ? '<span class="zero">0%</span>' : '';
   var descTxt = (it.d && L.desc && L.desc[it.k]) ? L.desc[it.k] : '';
+  var extArrow = '<svg class="extico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+  var nameHtml = it.link
+    ? '<a class="nm nmlink" href="'+it.link+'" target="_blank" rel="noopener">'+name+extArrow+'</a>'
+    : '<span class="nm">'+name+'</span>';
 
   if(it.variants){
     var vars = it.variants.map(function(v){
@@ -271,18 +284,18 @@ function renderItem(it, L, secId){
       return '<span class="v"><span class="vl">'+lbl+'</span><span class="vp">€ '+v[1]+'</span></span>';
     }).join("");
     return '<div class="item block">'+
-        '<div class="itop">'+tile+'<span class="nm">'+name+'</span>'+zero+'</div>'+
+        '<div class="itop">'+tile+nameHtml+zero+'</div>'+
         '<div class="vars">'+vars+'</div>'+
       '</div>';
   }
   if(descTxt){
     return '<div class="item block">'+
-        '<div class="itop">'+tile+'<span class="nm">'+name+'</span>'+zero+
+        '<div class="itop">'+tile+nameHtml+zero+
           '<span class="lead-dots"></span><span class="pr">€ '+it.p+'</span></div>'+
         '<div class="desc">'+descTxt+'</div>'+
       '</div>';
   }
-  return '<div class="item">'+tile+'<span class="nm">'+name+'</span>'+zero+
+  return '<div class="item">'+tile+nameHtml+zero+
       '<span class="lead-dots"></span><span class="pr">€ '+it.p+'</span>'+
     '</div>';
 }

@@ -76,9 +76,9 @@ window.BOISSON = {
       {k:"omer", n:"Omer", p:"5,40"},
       {k:"hoegaarden_rose", n:"Hoegaarden Rosé", p:"4,00"},
       {k:"duvel", n:"Duvel", p:"5,10"},
-      {k:"buta_biru", n:"Buta Biru · Local Sweynbeer", p:"4,80"},
-      {k:"hubeer", n:"Hubeer · Local Sweynbeer", p:"4,80"},
-      {k:"chili_ipa", n:"Chili IPA · Local Sweynbeer", p:"4,80"},
+      {k:"buta_biru", n:"Buta Biru · Local Sweynbeer", p:"4,80", link:"https://sweyn.beer/"},
+      {k:"hubeer", n:"Hubeer · Local Sweynbeer", p:"4,80", link:"https://sweyn.beer/"},
+      {k:"chili_ipa", n:"Chili IPA · Local Sweynbeer", p:"4,80", link:"https://sweyn.beer/"},
       {k:"corona", n:"Corona", p:"5,20"}
     ]},
     {id:"soft", items:[
