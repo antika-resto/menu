@@ -36,4 +36,14 @@
   window.drinkIcon = function(id){
     return (window.DRINK_ICONS[id] || window.DRINK_ICONS._default);
   };
+
+  /* Pastille : logo de marque si fourni (data: logo:"fichier.png"),
+     sinon icône de catégorie. Les logos vont dans le dossier logos/. */
+  window.brandTile = function(logo, secId, alt){
+    if(logo){
+      var a = (alt || "").replace(/"/g, "");
+      return '<span class="ic-tile logo"><img src="logos/'+logo+'" alt="'+a+'" loading="lazy"></span>';
+    }
+    return '<span class="ic-tile">'+window.drinkIcon(secId)+'</span>';
+  };
 })();
