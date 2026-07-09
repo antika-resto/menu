@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boissons — Antika</title>
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#161512;
+    --muted:#7a7268;
+    --faint:#a9a196;
+    --line:#ece8e1;
+    --line-strong:#ddd7cc;
+    --gold:#b08324;
+    --gold-soft:#c9a24a;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  }
+  img{display:block;max-width:100%}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:30;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top);
+  }
+  .bar{
+    max-width:680px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;padding:11px 16px;
+  }
+  .back{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:11px;
+    border:1px solid var(--line-strong);
+    color:var(--ink);text-decoration:none;flex:0 0 auto;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .back:active{background:#f6f3ee}
+  .brand{text-align:center;line-height:1;flex:1 1 auto;overflow:hidden}
+  .brand .name{
+    font-family:var(--serif);font-weight:600;
+    font-size:25px;letter-spacing:.02em;
+  }
+  .brand .sub{
+    font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--muted);margin-top:2px;
+  }
+  .lang-wrap{position:relative;flex:0 0 auto}
+  .lang-btn{
+    display:inline-flex;align-items:center;gap:7px;
+    height:38px;padding:0 12px;border-radius:11px;
+    border:1px solid var(--line-strong);background:#fff;
+    font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);
+    cursor:pointer;-webkit-tap-highlight-color:transparent;
+  }
+  .lang-btn .fl{font-size:16px;line-height:1}
+  .lang-btn .ca{color:var(--faint);font-size:10px;transition:transform .2s}
+  .lang-wrap.open .lang-btn .ca{transform:rotate(180deg)}
+  .lang-menu{
+    position:absolute;right:0;top:46px;min-width:172px;
+    background:#fff;border:1px solid var(--line-strong);border-radius:14px;
+    box-shadow:0 18px 44px rgba(30,24,10,.16);
+    padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .16s ease,transform .16s ease,visibility .16s;
+  }
+  .lang-wrap.open .lang-menu{opacity:1;visibility:visible;transform:none}
+  .lang-menu a{
+    display:flex;align-items:center;gap:11px;
+    padding:10px 12px;border-radius:9px;
+    text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;
+  }
+  .lang-menu a .fl{font-size:19px}
+  .lang-menu a:active{background:#f6f3ee}
+  .lang-menu a.on{color:var(--gold);font-weight:600}
+  .lang-menu a.on::after{content:"✓";margin-left:auto;color:var(--gold);font-size:13px}
+
+  /* ---------- Category nav ---------- */
+  .cats{
+    position:sticky;top:calc(61px + env(safe-area-inset-top));z-index:20;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .cats-inner{
+    max-width:680px;margin:0 auto;
+    display:flex;gap:8px;overflow-x:auto;
+    padding:10px 16px;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .cats-inner::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;white-space:nowrap;
+    padding:8px 15px;border-radius:999px;
+    border:1px solid var(--line-strong);background:#fff;
+    font-size:13px;font-weight:500;color:var(--muted);
+    text-decoration:none;-webkit-tap-highlight-color:transparent;
+    transition:all .18s ease;cursor:pointer;
+  }
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  /* ---------- Content ---------- */
+  main{max-width:680px;margin:0 auto;padding:0 16px}
+
+  .hero{text-align:center;padding:30px 6px 10px}
+  .hero .logo{width:110px;margin:0 auto 16px;opacity:.96}
+  .hero .lead{
+    font-family:var(--serif);font-style:italic;font-size:23px;
+    color:var(--ink);line-height:1.35;
+  }
+  .hero .lead .al{display:block;font-style:italic;font-size:20px;color:var(--gold);letter-spacing:.01em;margin-top:2px}
+
+  section{padding-top:30px;scroll-margin-top:118px}
+  .sec-head{text-align:center;margin-bottom:14px}
+  .sec-head .t{
+    font-family:var(--serif);font-weight:600;font-size:30px;
+    letter-spacing:.01em;position:relative;display:inline-block;padding:0 2px;
+  }
+  .sec-head .s{
+    display:block;font-family:var(--sans);
+    font-size:10.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:9px;
+  }
+  .rule{
+    display:flex;align-items:center;justify-content:center;gap:10px;margin-top:11px;
+  }
+  .rule::before,.rule::after{content:"";height:1px;width:38px;background:var(--line-strong)}
+  .rule .dot{width:5px;height:5px;border-radius:50%;background:var(--gold-soft)}
+
+  .subhead{
+    font-family:var(--serif);font-weight:600;font-size:17px;
+    color:var(--gold);letter-spacing:.01em;
+    margin:20px 0 2px;padding-bottom:6px;border-bottom:1px solid var(--line);
+  }
+  .subhead:first-child{margin-top:4px}
+
+  .item{
+    display:flex;gap:10px;align-items:baseline;
+    padding:12px 0;border-bottom:1px solid var(--line);
+  }
+  .item.block{flex-direction:column;align-items:stretch;gap:0}
+  .item:last-child{border-bottom:0}
+  .item .nm{
+    font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.2;
+    letter-spacing:.01em;color:var(--ink);flex:0 1 auto;
+  }
+  .item .lead-dots{
+    flex:1 1 auto;border-bottom:1px dotted var(--line-strong);
+    transform:translateY(-3px);min-width:14px;
+  }
+  .item .pr{
+    font-family:var(--serif);font-weight:600;font-size:19px;
+    color:var(--gold);white-space:nowrap;flex:0 0 auto;
+  }
+  .item .desc{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5;max-width:52ch}
+  .vars{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:9px}
+  .vars .v{display:inline-flex;align-items:baseline;gap:8px}
+  .vars .vl{font-size:12.5px;color:var(--muted)}
+  .vars .vp{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--gold)}
+
+  footer{
+    text-align:center;margin-top:44px;padding-top:26px;
+    border-top:1px solid var(--line);
+  }
+  footer .fb{font-family:var(--serif);font-size:26px;font-weight:600}
+  footer .fs{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  footer .fw{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:16px;text-decoration:none;display:inline-block}
+
+  @media (min-width:560px){
+    .item .nm{font-size:22px}
+    .hero .lead{font-size:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="back" id="back" href="carte.html" aria-label="Retour">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="brand">
+      <div class="name">Antika</div>
+      <div class="sub">Molenveld</div>
+    </div>
+    <div class="lang-wrap" id="langWrap">
+      <button class="lang-btn" id="langBtn" aria-haspopup="true">
+        <span class="fl" id="langFlag">🇫🇷</span>
+        <span id="langCode">FR</span>
+        <span class="ca">▾</span>
+      </button>
+      <div class="lang-menu" id="langMenu"></div>
+    </div>
+  </div>
+  <div class="cats">
+    <div class="cats-inner" id="cats"></div>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<script src="boisson-data.js"></script>
+<script src="desserts-data.js"></script>
+<script>
+/* ============================================================
+   CARTE DES BOISSONS — moteur de rendu
+   Données : boisson-data.js + desserts-data.js (digestif, boissons chaudes)
+   ============================================================ */
+
+var LANGS = [
+  {code:"nl", flag:"🇳🇱", label:"Nederlands"},
+  {code:"fr", flag:"🇫🇷", label:"Français"},
+  {code:"en", flag:"🇬🇧", label:"English"},
+  {code:"al", flag:"🇦🇱", label:"Shqip"}
+];
+
+var B = window.BOISSON;
+var DZ = window.DESSERTS;
+
+function getLang(){
+  var p = new URLSearchParams(location.search).get("lang");
+  if(p && B.i18n[p]) return p;
+  return "fr";
+}
+
+/* rend un item ; L = jeu de traductions {names,desc,labels,subs} */
+function renderItem(it, L){
+  if(it.sub){
+    return '<div class="subhead">'+((L.subs && L.subs[it.sub]) || it.sub)+'</div>';
+  }
+  var name = (L.names && L.names[it.k]) || it.n || it.k;
+  var desc = (it.d && L.desc && L.desc[it.k]) ? '<div class="desc">'+L.desc[it.k]+'</div>' : '';
+
+  if(it.variants){
+    var vars = it.variants.map(function(v){
+      var lbl = (L.labels && L.labels[v[0]]) || v[0];
+      return '<span class="v"><span class="vl">'+lbl+'</span><span class="vp">€ '+v[1]+'</span></span>';
+    }).join("");
+    return '<div class="item block">'+
+        '<div class="nm">'+name+'</div>'+desc+
+        '<div class="vars">'+vars+'</div>'+
+      '</div>';
+  }
+  return '<div class="item'+(desc?' block':'')+'">'+
+      (desc
+        ? '<div style="display:flex;align-items:baseline;gap:10px;width:100%"><span class="nm">'+name+'</span><span class="lead-dots"></span><span class="pr">€ '+it.p+'</span></div>'+desc
+        : '<span class="nm">'+name+'</span><span class="lead-dots"></span><span class="pr">€ '+it.p+'</span>'
+      )+
+    '</div>';
+}
+
+function sectionHtml(id, head, items, L){
+  var h = '<section id="'+id+'">'+
+    '<div class="sec-head"><span class="s">'+head.s+'</span>'+
+    '<div class="t">'+head.t+'</div>'+
+    '<div class="rule"><span class="dot"></span></div></div>';
+  items.forEach(function(it){ h += renderItem(it, L); });
+  return h + '</section>';
+}
+
+function render(lang){
+  var L = B.i18n[lang] || B.i18n.fr;
+  document.documentElement.lang = lang;
+  document.getElementById("back").setAttribute("href", "carte.html?lang="+lang);
+
+  var cur = LANGS.filter(function(x){return x.code===lang})[0] || LANGS[1];
+  document.getElementById("langFlag").textContent = cur.flag;
+  document.getElementById("langCode").textContent = cur.code.toUpperCase();
+  document.getElementById("langMenu").innerHTML = LANGS.map(function(x){
+    return '<a class="'+(x.code===lang?"on":"")+'" href="?lang='+x.code+'"><span class="fl">'+x.flag+'</span>'+x.label+'</a>';
+  }).join("");
+
+  // sections partagées (digestif, boissons chaudes) depuis desserts-data.js
+  var DL = DZ ? (DZ.i18n[lang] || DZ.i18n.fr) : null;
+  var tail = [];
+  if(DZ){
+    B.sharedTail.forEach(function(id){
+      var sec = DZ.sections.filter(function(s){return s.id===id})[0];
+      if(sec) tail.push({sec:sec, head:DL.sections[id]});
+    });
+  }
+
+  // chips
+  var chips = B.sections.map(function(sec){
+    return '<a class="chip" data-sec="'+sec.id+'" href="#'+sec.id+'">'+L.sections[sec.id].t+'</a>';
+  }).join("");
+  chips += tail.map(function(x){
+    return '<a class="chip" data-sec="'+x.sec.id+'" href="#'+x.sec.id+'">'+x.head.t+'</a>';
+  }).join("");
+  document.getElementById("cats").innerHTML = chips;
+
+  // hero
+  var html = '<div class="hero">'+
+      '<img class="logo" src="logo-antika.png" alt="Antika">'+
+      '<div class="lead">'+L.hero.lead+'<span class="al">'+L.hero.al+'</span></div>'+
+    '</div>';
+
+  // sections boissons
+  B.sections.forEach(function(sec){
+    html += sectionHtml(sec.id, L.sections[sec.id], sec.items, L);
+  });
+
+  // sections partagées (digestif + boissons chaudes) ; noms via DL
+  tail.forEach(function(x){
+    html += sectionHtml(x.sec.id, x.head, x.sec.items, DL);
+  });
+
+  // footer
+  html += '<footer>'+
+      '<div class="fb">Antika</div>'+
+      '<div class="fs">Resto · Lounge · Bar · Event</div>'+
+      '<a class="fw" href="https://www.'+L.web+'" target="_blank" rel="noopener">'+L.web+'</a>'+
+    '</footer>';
+
+  document.getElementById("main").innerHTML = html;
+  wireScrollSpy();
+}
+
+/* language dropdown */
+var lw = document.getElementById("langWrap");
+document.getElementById("langBtn").addEventListener("click", function(e){
+  e.stopPropagation(); lw.classList.toggle("open");
+});
+document.addEventListener("click", function(){ lw.classList.remove("open"); });
+
+/* scroll-spy */
+function wireScrollSpy(){
+  var chips = [].slice.call(document.querySelectorAll(".chip"));
+  var secs = [].slice.call(document.querySelectorAll("section"));
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var id=en.target.id;
+        chips.forEach(function(c){ c.classList.toggle("active", c.getAttribute("data-sec")===id); });
+        var active=document.querySelector(".chip.active");
+        if(active) active.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+      }
+    });
+  },{rootMargin:"-120px 0px -70% 0px",threshold:0});
+  secs.forEach(function(s){ if(s) obs.observe(s); });
+
+  chips.forEach(function(c){
+    c.addEventListener("click", function(e){
+      e.preventDefault();
+      var t=document.getElementById(c.getAttribute("data-sec"));
+      if(t) window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-112,behavior:"smooth"});
+    });
+  });
+}
+
+render(getLang());
+</script>
+</body>
+</html>
