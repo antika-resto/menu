@@ -254,6 +254,7 @@
   <div class="cap" id="lbcap"></div>
 </div>
 
+<script src="desserts-data.js"></script>
 <script>
 /* ============================================================
    DONNÉES — prix & photos communs ; textes par langue
@@ -586,10 +587,20 @@ function render(lang){
     return '<a class="'+(x.code===lang?"on":"")+'" href="?lang='+x.code+'"><span class="fl">'+x.flag+'</span>'+x.label+'</a>';
   }).join("");
 
-  // category chips
-  document.getElementById("cats").innerHTML = MENU.map(function(sec){
+  // desserts & digestifs (source partagée desserts-data.js)
+  var DZ = window.DESSERTS || null;
+  var DL = DZ ? (DZ.i18n[lang] || DZ.i18n.fr) : null;
+
+  // category chips (nourriture + desserts)
+  var chipsHtml = MENU.map(function(sec){
     return '<a class="chip" data-sec="'+sec.id+'" href="#'+sec.id+'">'+L.sections[sec.id].t+'</a>';
   }).join("");
+  if(DZ){
+    chipsHtml += DZ.sections.map(function(sec){
+      return '<a class="chip" data-sec="'+sec.id+'" href="#'+sec.id+'">'+DL.sections[sec.id].t+'</a>';
+    }).join("");
+  }
+  document.getElementById("cats").innerHTML = chipsHtml;
 
   // hero
   var html = ''+
@@ -638,6 +649,28 @@ function render(lang){
     html += '</section>';
   });
 
+  // desserts & digestifs — rappel en fin de carte (source partagée)
+  if(DZ){
+    html += '<div class="sec-head" style="margin-top:48px;padding-top:38px;border-top:1px solid var(--line-strong)">'+
+      '<span class="s">'+DL.head.s+'</span>'+
+      '<div class="t">'+DL.head.t+'</div>'+
+      '<div class="rule"><span class="dot"></span></div></div>';
+    DZ.sections.forEach(function(sec){
+      var dt = DL.sections[sec.id];
+      html += '<section id="'+sec.id+'" style="padding-top:22px">'+
+        '<div class="sec-head"><span class="s">'+dt.s+'</span>'+
+        '<div class="t">'+dt.t+'</div>'+
+        '<div class="rule"><span class="dot"></span></div></div>';
+      sec.items.forEach(function(it){
+        var name = (DL.names && DL.names[it.k]) || it.n;
+        html += '<div class="item nophoto"><div class="txt">'+
+            '<div class="row1"><span class="nm">'+name+'</span><span class="lead-dots"></span>'+
+            '<span class="pr">€ '+it.p+'</span></div></div></div>';
+      });
+      html += '</section>';
+    });
+  }
+
   // footer
   html += '<footer>'+
       '<div class="fb">Antika</div>'+
@@ -674,7 +707,7 @@ function wireLightbox(){
 /* scroll-spy for category chips */
 function wireScrollSpy(){
   var chips = [].slice.call(document.querySelectorAll(".chip"));
-  var secs = MENU.map(function(s){return document.getElementById(s.id)});
+  var secs = [].slice.call(document.querySelectorAll("section"));
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
       if(en.isIntersecting){
