@@ -46,9 +46,9 @@ window.BOISSON = {
       {k:"mexican_mule", n:"Mexican Mule", p:"12,00", d:1},
       {k:"fire_mule", n:"Fire Mule", p:"12,00", d:1},
       {sub:"mocktails"},
-      {k:"antika_sweet", n:"Antika Sweet", p:"10,00"},
-      {k:"antika_bitter", n:"Antika Bitter", p:"10,00"},
-      {k:"ginger_mule", n:"Ginger Mule", p:"10,00"}
+      {k:"antika_sweet", n:"Antika Sweet", p:"10,00", z:1},
+      {k:"antika_bitter", n:"Antika Bitter", p:"10,00", z:1},
+      {k:"ginger_mule", n:"Ginger Mule", p:"10,00", z:1}
     ]},
     {id:"wine", items:[
       {k:"wine_house", variants:[["glass","5,50"],["q","9,90"],["h","17,00"],["bottle","26,00"]]},

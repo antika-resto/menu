@@ -147,8 +147,14 @@
   .rule::before,.rule::after{content:"";height:1px;width:38px;background:var(--line-strong)}
   .rule .dot{width:5px;height:5px;border-radius:50%;background:var(--gold-soft)}
 
+  .ic-tile{
+    flex:0 0 auto;width:40px;height:40px;border-radius:12px;
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--gold);background:#faf6ec;border:1px solid #efe3c8;
+  }
+  .ic-tile svg{width:22px;height:22px}
   .item{
-    display:flex;gap:10px;align-items:baseline;
+    display:flex;gap:12px;align-items:center;
     padding:12px 0;border-bottom:1px solid var(--line);
   }
   .item:last-child{border-bottom:0}
@@ -207,6 +213,7 @@
 <main id="main"></main>
 
 <script src="desserts-data.js"></script>
+<script src="icons.js"></script>
 <script>
 /* ============================================================
    DESSERTS & DIGESTIFS
@@ -281,6 +288,7 @@ function render(lang){
     sec.items.forEach(function(it){
       var name = (L.names && L.names[it.k]) || it.n;
       html += '<div class="item">'+
+          '<span class="ic-tile">'+window.drinkIcon(sec.id)+'</span>'+
           '<span class="nm">'+name+'</span>'+
           '<span class="lead-dots"></span>'+
           '<span class="pr">€ '+it.p+'</span>'+

@@ -153,15 +153,27 @@
   }
   .subhead:first-child{margin-top:4px}
 
+  .ic-tile{
+    flex:0 0 auto;width:40px;height:40px;border-radius:12px;
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--gold);background:#faf6ec;border:1px solid #efe3c8;
+  }
+  .ic-tile svg{width:22px;height:22px}
   .item{
-    display:flex;gap:10px;align-items:baseline;
+    display:flex;gap:12px;align-items:center;
     padding:12px 0;border-bottom:1px solid var(--line);
   }
   .item.block{flex-direction:column;align-items:stretch;gap:0}
   .item:last-child{border-bottom:0}
+  .itop{display:flex;gap:12px;align-items:center;width:100%}
   .item .nm{
     font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.2;
     letter-spacing:.01em;color:var(--ink);flex:0 1 auto;
+  }
+  .zero{
+    flex:0 0 auto;font-size:10px;font-weight:700;letter-spacing:.02em;
+    color:var(--gold);background:#faf5ea;border:1px solid #efe3c8;
+    padding:2px 7px;border-radius:999px;
   }
   .item .lead-dots{
     flex:1 1 auto;border-bottom:1px dotted var(--line-strong);
@@ -171,8 +183,8 @@
     font-family:var(--serif);font-weight:600;font-size:19px;
     color:var(--gold);white-space:nowrap;flex:0 0 auto;
   }
-  .item .desc{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5;max-width:52ch}
-  .vars{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:9px}
+  .item .desc{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5;max-width:52ch;margin-left:52px}
+  .vars{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:9px;margin-left:52px}
   .vars .v{display:inline-flex;align-items:baseline;gap:8px}
   .vars .vl{font-size:12.5px;color:var(--muted)}
   .vars .vp{font-family:var(--serif);font-weight:600;font-size:17px;color:var(--gold)}
@@ -220,6 +232,7 @@
 
 <script src="boisson-data.js"></script>
 <script src="desserts-data.js"></script>
+<script src="icons.js"></script>
 <script>
 /* ============================================================
    CARTE DES BOISSONS — moteur de rendu
@@ -242,13 +255,15 @@ function getLang(){
   return "fr";
 }
 
-/* rend un item ; L = jeu de traductions {names,desc,labels,subs} */
-function renderItem(it, L){
+/* rend un item ; L = jeu de traductions {names,desc,labels,subs} ; secId pour l'icône */
+function renderItem(it, L, secId){
   if(it.sub){
     return '<div class="subhead">'+((L.subs && L.subs[it.sub]) || it.sub)+'</div>';
   }
   var name = (L.names && L.names[it.k]) || it.n || it.k;
-  var desc = (it.d && L.desc && L.desc[it.k]) ? '<div class="desc">'+L.desc[it.k]+'</div>' : '';
+  var tile = '<span class="ic-tile">'+window.drinkIcon(secId)+'</span>';
+  var zero = it.z ? '<span class="zero">0%</span>' : '';
+  var descTxt = (it.d && L.desc && L.desc[it.k]) ? L.desc[it.k] : '';
 
   if(it.variants){
     var vars = it.variants.map(function(v){
@@ -256,15 +271,19 @@ function renderItem(it, L){
       return '<span class="v"><span class="vl">'+lbl+'</span><span class="vp">€ '+v[1]+'</span></span>';
     }).join("");
     return '<div class="item block">'+
-        '<div class="nm">'+name+'</div>'+desc+
+        '<div class="itop">'+tile+'<span class="nm">'+name+'</span>'+zero+'</div>'+
         '<div class="vars">'+vars+'</div>'+
       '</div>';
   }
-  return '<div class="item'+(desc?' block':'')+'">'+
-      (desc
-        ? '<div style="display:flex;align-items:baseline;gap:10px;width:100%"><span class="nm">'+name+'</span><span class="lead-dots"></span><span class="pr">€ '+it.p+'</span></div>'+desc
-        : '<span class="nm">'+name+'</span><span class="lead-dots"></span><span class="pr">€ '+it.p+'</span>'
-      )+
+  if(descTxt){
+    return '<div class="item block">'+
+        '<div class="itop">'+tile+'<span class="nm">'+name+'</span>'+zero+
+          '<span class="lead-dots"></span><span class="pr">€ '+it.p+'</span></div>'+
+        '<div class="desc">'+descTxt+'</div>'+
+      '</div>';
+  }
+  return '<div class="item">'+tile+'<span class="nm">'+name+'</span>'+zero+
+      '<span class="lead-dots"></span><span class="pr">€ '+it.p+'</span>'+
     '</div>';
 }
 
@@ -273,7 +292,7 @@ function sectionHtml(id, head, items, L){
     '<div class="sec-head"><span class="s">'+head.s+'</span>'+
     '<div class="t">'+head.t+'</div>'+
     '<div class="rule"><span class="dot"></span></div></div>';
-  items.forEach(function(it){ h += renderItem(it, L); });
+  items.forEach(function(it){ h += renderItem(it, L, id); });
   return h + '</section>';
 }
 

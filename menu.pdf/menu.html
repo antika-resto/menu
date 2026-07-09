@@ -186,6 +186,13 @@
     cursor:zoom-in;-webkit-tap-highlight-color:transparent;
   }
   .item.nophoto .ph{display:none}
+  .ic-tile{
+    flex:0 0 auto;width:40px;height:40px;border-radius:12px;
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--gold);background:#faf6ec;border:1px solid #efe3c8;
+  }
+  .ic-tile svg{width:22px;height:22px}
+  .item.drow{align-items:center;gap:12px}
 
   .foot-note{
     font-size:12px;color:var(--muted);line-height:1.6;
@@ -255,6 +262,7 @@
 </div>
 
 <script src="desserts-data.js"></script>
+<script src="icons.js"></script>
 <script>
 /* ============================================================
    DONNÉES — prix & photos communs ; textes par langue
@@ -663,7 +671,9 @@ function render(lang){
         '<div class="rule"><span class="dot"></span></div></div>';
       sec.items.forEach(function(it){
         var name = (DL.names && DL.names[it.k]) || it.n;
-        html += '<div class="item nophoto"><div class="txt">'+
+        html += '<div class="item nophoto drow">'+
+            '<span class="ic-tile">'+window.drinkIcon(sec.id)+'</span>'+
+            '<div class="txt">'+
             '<div class="row1"><span class="nm">'+name+'</span><span class="lead-dots"></span>'+
             '<span class="pr">€ '+it.p+'</span></div></div></div>';
       });
