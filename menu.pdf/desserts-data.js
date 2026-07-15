@@ -10,48 +10,48 @@
 window.DESSERTS = {
   sections: [
     {id:"hotdrinks", items:[
-      {k:"coffee", n:"Coffee", p:"3,20"},
-      {k:"macchiato", n:"Macchiato", p:"3,80"},
-      {k:"cappuccino", n:"Cappuccino", p:"3,90"},
-      {k:"espresso", n:"Espresso", p:"3,00"},
-      {k:"double_espresso", n:"Double espresso", p:"4,20"},
-      {k:"albanian_coffee", n:"Albanian coffee", p:"3,20"},
-      {k:"mint_tea", n:"Fresh mint tea", p:"4,00"},
-      {k:"tea", n:"Tea", p:"3,00"}
+      {k:"coffee", n:"Coffee", p:"3,20", img:"coffee.jpg"},
+      {k:"macchiato", n:"Macchiato", p:"3,80", img:"macchiato.jpg"},
+      {k:"cappuccino", n:"Cappuccino", p:"3,90", img:"cappuccino.jpg"},
+      {k:"espresso", n:"Espresso", p:"3,00", img:"espresso.jpg"},
+      {k:"double_espresso", n:"Double espresso", p:"4,20", img:"double_espresso.jpg"},
+      {k:"albanian_coffee", n:"Albanian coffee", p:"3,20", img:"albanian_coffee.jpg"},
+      {k:"mint_tea", n:"Fresh mint tea", p:"4,00", img:"mint_tea.jpg"},
+      {k:"tea", n:"Tea", p:"3,00", img:"tea.jpg"}
     ]},
     {id:"specialcoffee", items:[
-      {k:"irish", n:"Irish Coffee", p:"8,50"},
-      {k:"french", n:"French Coffee", p:"8,50"},
-      {k:"italian", n:"Italian Coffee", p:"8,50"}
+      {k:"irish", n:"Irish Coffee", p:"8,50", img:"irish.jpg"},
+      {k:"french", n:"French Coffee", p:"8,50", img:"french.jpg"},
+      {k:"italian", n:"Italian Coffee", p:"8,50", img:"italian.jpg"}
     ]},
     {id:"desserts", items:[
-      {k:"panna", n:"Panna Cotta Del Sol", p:"9,00"},
-      {k:"dreamisu", n:"Strawberry Dreamisu", p:"7,00"},
-      {k:"lady", n:"Lady Blanche", p:"7,00"},
-      {k:"flame", n:"Crème de la Flame", p:"11,00"},
-      {k:"colonel", n:"The Ice Colonel", p:"10,00"},
-      {k:"milkyway", n:"The 3 Milky Way", p:"8,00"},
-      {k:"meltdown", n:"Chocolate Meltdown", p:"9,00"},
-      {k:"balkan", n:"Artisan Balkan desserts", p:"6,00"},
-      {k:"koffiebeleving", n:"Gourmet coffee experience", p:"8,00"}
+      {k:"panna", n:"Panna Cotta Del Sol", p:"9,00", img:"panna.jpg"},
+      {k:"dreamisu", n:"Strawberry Dreamisu", p:"7,00", img:"dreamisu.jpg"},
+      {k:"lady", n:"Lady Blanche", p:"7,00", img:"lady.jpg"},
+      {k:"flame", n:"Crème de la Flame", p:"11,00", img:"flame.jpg"},
+      {k:"colonel", n:"The Ice Colonel", p:"10,00", img:"colonel.jpg"},
+      {k:"milkyway", n:"The 3 Milky Way", p:"8,00", img:"milkyway.jpg"},
+      {k:"meltdown", n:"Chocolate Meltdown", p:"9,00", img:"meltdown.jpg"},
+      {k:"balkan", n:"Artisan Balkan desserts", p:"6,00", img:"balkan.jpg"},
+      {k:"koffiebeleving", n:"Gourmet coffee experience", p:"8,00", img:"koffiebeleving.jpg"}
     ]},
     {id:"digestif", items:[
-      {k:"raki", n:"Raki", p:"7,90"},
-      {k:"brandy", n:"Brandy", p:"8,20"},
-      {k:"amaretto", n:"Amaretto", p:"7,50"},
-      {k:"amaretto_velvet", n:"Amaretto Velvet", p:"7,50"},
-      {k:"grand_marnier", n:"Grand Marnier", p:"8,50"},
+      {k:"raki", n:"Raki", p:"7,90", logo:"raki.png"},
+      {k:"brandy", n:"Brandy", p:"8,20", logo:"brandy.png"},
+      {k:"amaretto", n:"Amaretto", p:"7,50", logo:"amaretto.png"},
+      {k:"amaretto_velvet", n:"Amaretto Velvet", p:"7,50", logo:"disaronno-velvet.png"},
+      {k:"grand_marnier", n:"Grand Marnier", p:"8,50", logo:"grandmarnier.png"},
       {k:"baileys", n:"Baileys", p:"7,50", logo:"baileys.png"},
-      {k:"calvados", n:"Calvados", p:"9,00"},
-      {k:"cointreau", n:"Cointreau", p:"7,70"},
-      {k:"don_papa", n:"Don Papa", p:"14,50"},
-      {k:"limoncello", n:"Limoncello", p:"7,50"},
-      {k:"grappa", n:"Grappa", p:"7,90"},
-      {k:"jack", n:"Jack Daniel's", p:"8,50"},
-      {k:"chivas", n:"Chivas", p:"9,50"},
-      {k:"genever", n:"Genever", p:"8,00"},
-      {k:"cognac", n:"Cognac", p:"9,50"},
-      {k:"sambuca", n:"Sambuca", p:"7,80"}
+      {k:"calvados", n:"Calvados", p:"9,00", logo:"calvados.png"},
+      {k:"cointreau", n:"Cointreau", p:"7,70", logo:"cointreau.png"},
+      {k:"don_papa", n:"Don Papa", p:"14,50", logo:"donpapa.png"},
+      {k:"limoncello", n:"Limoncello", p:"7,50", logo:"limoncello.png"},
+      {k:"grappa", n:"Grappa", p:"7,90", logo:"grappa.png"},
+      {k:"jack", n:"Jack Daniel's", p:"8,50", logo:"jack.png"},
+      {k:"chivas", n:"Chivas", p:"9,50", logo:"chivas.png"},
+      {k:"genever", n:"Genever", p:"8,00", logo:"genever.png"},
+      {k:"cognac", n:"Cognac", p:"9,50", logo:"cognac.png"},
+      {k:"sambuca", n:"Sambuca", p:"7,80", logo:"sambuca.png"}
     ]}
   ],
 

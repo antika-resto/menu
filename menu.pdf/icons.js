@@ -37,11 +37,16 @@
     return (window.DRINK_ICONS[id] || window.DRINK_ICONS._default);
   };
 
-  /* Pastille : logo de marque si fourni (data: logo:"fichier.png"),
-     sinon icône de catégorie. Les logos vont dans le dossier logos/. */
-  window.brandTile = function(logo, secId, alt){
+  /* Pastille :
+       img:"fichier.jpg"  → photo produit (dossier drinks/, remplit la pastille)
+       logo:"fichier.png" → logo de marque (dossier logos/, contenu sur fond blanc)
+       sinon              → icône de catégorie. */
+  window.brandTile = function(logo, secId, alt, img){
+    var a = (alt || "").replace(/"/g, "");
+    if(img){
+      return '<span class="ic-tile photo"><img src="drinks/'+img+'" alt="'+a+'" loading="lazy"></span>';
+    }
     if(logo){
-      var a = (alt || "").replace(/"/g, "");
       return '<span class="ic-tile logo"><img src="logos/'+logo+'" alt="'+a+'" loading="lazy"></span>';
     }
     return '<span class="ic-tile">'+window.drinkIcon(secId)+'</span>';

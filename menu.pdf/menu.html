@@ -132,6 +132,33 @@
   .hero .lead .al{display:block;font-style:normal;font-size:14px;color:var(--gold);letter-spacing:.04em;margin-top:6px}
   .hero .note{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.55}
 
+  /* ---------- Recommandation du chef ---------- */
+  .chef{
+    margin:20px 0 6px;border:1px solid var(--line-strong);border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg,#fffdf7,#ffffff);
+    box-shadow:0 12px 34px rgba(40,30,10,.09);
+  }
+  .chef-ph{width:100%;height:212px;object-fit:cover;display:block}
+  .chef-body{padding:18px 18px 20px}
+  .chef-eyebrow{
+    font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--gold);display:flex;align-items:center;gap:7px;
+  }
+  .chef-eyebrow::before{content:"★";font-size:12px;line-height:1}
+  .chef-title{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.1;margin:7px 0 9px}
+  .chef-desc{font-size:14px;color:var(--muted);line-height:1.55}
+  .chef-plabel{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink);margin:15px 0 9px}
+  .chef-preps{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .chef-preps li{font-size:13.5px;color:var(--ink);line-height:1.45;padding-left:16px;position:relative}
+  .chef-preps li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold-soft)}
+  .chef-preps b{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--gold)}
+  @media (min-width:560px){
+    .chef{display:flex;align-items:stretch}
+    .chef-ph{width:44%;height:auto;min-height:236px}
+    .chef-body{flex:1 1 auto;padding:24px 26px;align-self:center}
+    .chef-title{font-size:34px}
+  }
+
   section{padding-top:30px;scroll-margin-top:118px}
   .sec-head{text-align:center;margin-bottom:20px}
   .sec-head .t{
@@ -187,13 +214,15 @@
   }
   .item.nophoto .ph{display:none}
   .ic-tile{
-    flex:0 0 auto;width:40px;height:40px;border-radius:12px;
+    flex:0 0 auto;width:54px;height:54px;border-radius:14px;
     display:inline-flex;align-items:center;justify-content:center;
-    color:var(--gold);background:#faf6ec;border:1px solid #efe3c8;
+    color:var(--gold);background:#faf6ec;border:1px solid #efe3c8;overflow:hidden;
   }
-  .ic-tile svg{width:22px;height:22px}
-  .ic-tile.logo{background:#fff;padding:4px;overflow:hidden}
+  .ic-tile svg{width:24px;height:24px}
+  .ic-tile.logo{background:#fff;padding:5px}
   .ic-tile.logo img{width:100%;height:100%;object-fit:contain}
+  .ic-tile.photo{background:#f1ece0;padding:0}
+  .ic-tile.photo img{width:100%;height:100%;object-fit:cover}
   .item.drow{align-items:center;gap:12px}
 
   .foot-note{
@@ -574,6 +603,27 @@ var I18N = {
    ============================================================ */
 var PHOTOS = "photos/";
 
+/* Recommandation du chef — affichée en haut de la carte nourriture */
+var CHEF = {
+  img:"photos/moules-frites.jpg",
+  fr:{ eyebrow:"La recommandation du chef", title:"Moules Frites",
+    desc:"Moules extra-fraîches du jour, préparées avec soin et servies avec des frites croustillantes dorées à souhait. Un délicieux classique belge, plein de saveurs.",
+    plabel:"Au choix, 3 préparations :",
+    preps:[["Nature","préparées à la façon classique, aux légumes et fines herbes."],["Vin blanc","finement mijotées dans une sauce au vin blanc aromatique."],["Curry","sauce curry crémeuse, subtilement relevée."]] },
+  nl:{ eyebrow:"De aanrader van de chef", title:"Mosselen met Friet",
+    desc:"Dagverse mosselen, zorgvuldig bereid en geserveerd met goudbruin gebakken, krokante frietjes. Een heerlijke Belgische klassieker, vol pure smaak.",
+    plabel:"Keuze uit 3 bereidingen:",
+    preps:[["Natuur","klassiek bereid met groenten en kruiden."],["Witte Wijn","verfijnd bereid in een aromatische wittewijnsaus."],["Curry","romige currysaus met een subtiele kruidige toets."]] },
+  en:{ eyebrow:"The chef's recommendation", title:"Mussels & Fries",
+    desc:"Fresh mussels of the day, carefully prepared and served with golden, crispy fries. A delicious Belgian classic, full of pure flavour.",
+    plabel:"Choice of 3 preparations:",
+    preps:[["Natural","classically prepared with vegetables and herbs."],["White Wine","delicately cooked in an aromatic white wine sauce."],["Curry","creamy curry sauce with a subtle spicy touch."]] },
+  al:{ eyebrow:"Rekomandimi i shefit", title:"Midhje me Patate",
+    desc:"Midhje të freskëta të ditës, të përgatitura me kujdes dhe të shërbyera me patate të skuqura krokante e të arta. Një klasik i shijshëm belg, plot shije të pastër.",
+    plabel:"Zgjidhni nga 3 përgatitje:",
+    preps:[["Natyrale","përgatitur klasikisht me perime dhe erëza."],["Verë e Bardhë","përgatitur me delikatesë në një salcë aromatike vere të bardhë."],["Curry","salcë curry kremoze me një prekje delikate pikante."]] }
+};
+
 function getLang(){
   var p = new URLSearchParams(location.search).get("lang");
   if(p && I18N[p]) return p;
@@ -618,6 +668,21 @@ function render(lang){
       '<img class="logo" src="logo-antika.png" alt="Antika">'+
       '<div class="lead">'+L.hero.lead+'<span class="al">'+L.hero.al+'</span></div>'+
       '<div class="note">'+L.hero.note+'</div>'+
+    '</div>';
+
+  // recommandation du chef
+  var cf = CHEF[lang] || CHEF.fr;
+  html += '<div class="chef">'+
+      '<img class="chef-ph" loading="lazy" src="'+CHEF.img+'" alt="'+cf.title+'">'+
+      '<div class="chef-body">'+
+        '<div class="chef-eyebrow">'+cf.eyebrow+'</div>'+
+        '<div class="chef-title">'+cf.title+'</div>'+
+        '<div class="chef-desc">'+cf.desc+'</div>'+
+        '<div class="chef-plabel">'+cf.plabel+'</div>'+
+        '<ul class="chef-preps">'+cf.preps.map(function(p){
+          return '<li><b>'+p[0]+'</b> — '+p[1]+'</li>';
+        }).join("")+'</ul>'+
+      '</div>'+
     '</div>';
 
   // sections
@@ -674,7 +739,7 @@ function render(lang){
       sec.items.forEach(function(it){
         var name = (DL.names && DL.names[it.k]) || it.n;
         html += '<div class="item nophoto drow">'+
-            window.brandTile(it.logo, sec.id, name)+
+            window.brandTile(it.logo, sec.id, name, it.img)+
             '<div class="txt">'+
             '<div class="row1"><span class="nm">'+name+'</span><span class="lead-dots"></span>'+
             '<span class="pr">€ '+it.p+'</span></div></div></div>';
