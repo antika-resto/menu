@@ -145,7 +145,9 @@
     color:var(--gold);display:flex;align-items:center;gap:7px;
   }
   .chef-eyebrow::before{content:"★";font-size:12px;line-height:1}
-  .chef-title{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.1;margin:7px 0 9px}
+  .chef-titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:7px 0 9px}
+  .chef-title{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.1}
+  .chef-price{font-family:var(--serif);font-weight:600;font-size:27px;color:var(--gold);white-space:nowrap}
   .chef-desc{font-size:14px;color:var(--muted);line-height:1.55}
   .chef-plabel{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink);margin:15px 0 9px}
   .chef-preps{list-style:none;display:flex;flex-direction:column;gap:9px}
@@ -221,8 +223,8 @@
   .ic-tile svg{width:24px;height:24px}
   .ic-tile.logo{background:#fff;padding:5px}
   .ic-tile.logo img{width:100%;height:100%;object-fit:contain}
-  .ic-tile.photo{background:#f1ece0;padding:0}
-  .ic-tile.photo img{width:100%;height:100%;object-fit:cover}
+  .ic-tile.photo{background:#fff;padding:0}
+  .ic-tile.photo img{width:100%;height:100%;object-fit:contain}
   .item.drow{align-items:center;gap:12px}
 
   .foot-note{
@@ -605,20 +607,20 @@ var PHOTOS = "photos/";
 
 /* Recommandation du chef — affichée en haut de la carte nourriture */
 var CHEF = {
-  img:"photos/moules-frites.jpg",
-  fr:{ eyebrow:"La recommandation du chef", title:"Moules Frites",
+  img:"photos/moules-frites.jpg", price:"27",
+  fr:{ eyebrow:"Suggestion de la semaine", title:"Moules Frites",
     desc:"Moules extra-fraîches du jour, préparées avec soin et servies avec des frites croustillantes dorées à souhait. Un délicieux classique belge, plein de saveurs.",
     plabel:"Au choix, 3 préparations :",
     preps:[["Nature","préparées à la façon classique, aux légumes et fines herbes."],["Vin blanc","finement mijotées dans une sauce au vin blanc aromatique."],["Curry","sauce curry crémeuse, subtilement relevée."]] },
-  nl:{ eyebrow:"De aanrader van de chef", title:"Mosselen met Friet",
+  nl:{ eyebrow:"Suggestie van de week", title:"Mosselen met Friet",
     desc:"Dagverse mosselen, zorgvuldig bereid en geserveerd met goudbruin gebakken, krokante frietjes. Een heerlijke Belgische klassieker, vol pure smaak.",
     plabel:"Keuze uit 3 bereidingen:",
     preps:[["Natuur","klassiek bereid met groenten en kruiden."],["Witte Wijn","verfijnd bereid in een aromatische wittewijnsaus."],["Curry","romige currysaus met een subtiele kruidige toets."]] },
-  en:{ eyebrow:"The chef's recommendation", title:"Mussels & Fries",
+  en:{ eyebrow:"Suggestion of the week", title:"Mussels & Fries",
     desc:"Fresh mussels of the day, carefully prepared and served with golden, crispy fries. A delicious Belgian classic, full of pure flavour.",
     plabel:"Choice of 3 preparations:",
     preps:[["Natural","classically prepared with vegetables and herbs."],["White Wine","delicately cooked in an aromatic white wine sauce."],["Curry","creamy curry sauce with a subtle spicy touch."]] },
-  al:{ eyebrow:"Rekomandimi i shefit", title:"Midhje me Patate",
+  al:{ eyebrow:"Sugjerimi i javës", title:"Midhje me Patate",
     desc:"Midhje të freskëta të ditës, të përgatitura me kujdes dhe të shërbyera me patate të skuqura krokante e të arta. Një klasik i shijshëm belg, plot shije të pastër.",
     plabel:"Zgjidhni nga 3 përgatitje:",
     preps:[["Natyrale","përgatitur klasikisht me perime dhe erëza."],["Verë e Bardhë","përgatitur me delikatesë në një salcë aromatike vere të bardhë."],["Curry","salcë curry kremoze me një prekje delikate pikante."]] }
@@ -676,7 +678,8 @@ function render(lang){
       '<img class="chef-ph" loading="lazy" src="'+CHEF.img+'" alt="'+cf.title+'">'+
       '<div class="chef-body">'+
         '<div class="chef-eyebrow">'+cf.eyebrow+'</div>'+
-        '<div class="chef-title">'+cf.title+'</div>'+
+        '<div class="chef-titlerow"><div class="chef-title">'+cf.title+'</div>'+
+          '<div class="chef-price">'+CHEF.price+' €</div></div>'+
         '<div class="chef-desc">'+cf.desc+'</div>'+
         '<div class="chef-plabel">'+cf.plabel+'</div>'+
         '<ul class="chef-preps">'+cf.preps.map(function(p){
@@ -738,11 +741,19 @@ function render(lang){
         '<div class="rule"><span class="dot"></span></div></div>';
       sec.items.forEach(function(it){
         var name = (DL.names && DL.names[it.k]) || it.n;
-        html += '<div class="item nophoto drow">'+
-            window.brandTile(it.logo, sec.id, name, it.img)+
-            '<div class="txt">'+
-            '<div class="row1"><span class="nm">'+name+'</span><span class="lead-dots"></span>'+
-            '<span class="pr">€ '+it.p+'</span></div></div></div>';
+        if(sec.id==="desserts" && it.img){
+          html += '<div class="item">'+
+              '<div class="txt"><div class="row1"><span class="nm">'+name+'</span>'+
+              '<span class="lead-dots"></span><span class="pr">€ '+it.p+'</span></div></div>'+
+              '<img class="ph" loading="lazy" src="drinks/'+it.img+'" alt="'+name+'" data-cap="'+name+'">'+
+            '</div>';
+        } else {
+          html += '<div class="item nophoto drow">'+
+              window.brandTile(it.logo, sec.id, name, it.img)+
+              '<div class="txt">'+
+              '<div class="row1"><span class="nm">'+name+'</span><span class="lead-dots"></span>'+
+              '<span class="pr">€ '+it.p+'</span></div></div></div>';
+        }
       });
       html += '</section>';
     });

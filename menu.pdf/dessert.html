@@ -155,8 +155,8 @@
   .ic-tile svg{width:24px;height:24px}
   .ic-tile.logo{background:#fff;padding:5px}
   .ic-tile.logo img{width:100%;height:100%;object-fit:contain}
-  .ic-tile.photo{background:#f1ece0;padding:0}
-  .ic-tile.photo img{width:100%;height:100%;object-fit:cover}
+  .ic-tile.photo{background:#fff;padding:0}
+  .ic-tile.photo img{width:100%;height:100%;object-fit:contain}
   .item{
     display:flex;gap:12px;align-items:center;
     padding:12px 0;border-bottom:1px solid var(--line);
@@ -173,6 +173,24 @@
   .item .pr{
     font-family:var(--serif);font-weight:600;font-size:19px;
     color:var(--gold);white-space:nowrap;flex:0 0 auto;
+  }
+
+  /* desserts en mode photo (comme la carte nourriture) */
+  .dish{
+    display:flex;gap:14px;align-items:center;
+    padding:15px 0;border-bottom:1px solid var(--line);
+  }
+  .dish:last-child{border-bottom:0}
+  .dish-txt{flex:1 1 auto;min-width:0;display:flex;align-items:baseline;gap:8px}
+  .dish-nm{
+    font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.2;
+    letter-spacing:.01em;color:var(--ink);flex:0 1 auto;
+  }
+  .dish-dots{flex:1 1 auto;border-bottom:1px dotted var(--line-strong);transform:translateY(-3px);min-width:14px}
+  .dish-pr{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--gold);white-space:nowrap;flex:0 0 auto}
+  .dish-ph{
+    flex:0 0 auto;width:96px;height:96px;border-radius:14px;object-fit:cover;
+    background:#f3efe8;box-shadow:0 4px 14px rgba(40,30,10,.10);
   }
 
   footer{
@@ -291,12 +309,20 @@ function render(lang){
 
     sec.items.forEach(function(it){
       var name = (L.names && L.names[it.k]) || it.n;
-      html += '<div class="item">'+
-          window.brandTile(it.logo, sec.id, name, it.img)+
-          '<span class="nm">'+name+'</span>'+
-          '<span class="lead-dots"></span>'+
-          '<span class="pr">€ '+it.p+'</span>'+
-        '</div>';
+      if(sec.id==="desserts" && it.img){
+        html += '<div class="dish">'+
+            '<div class="dish-txt"><span class="dish-nm">'+name+'</span>'+
+              '<span class="dish-dots"></span><span class="dish-pr">€ '+it.p+'</span></div>'+
+            '<img class="dish-ph" loading="lazy" src="drinks/'+it.img+'" alt="'+name+'">'+
+          '</div>';
+      } else {
+        html += '<div class="item">'+
+            window.brandTile(it.logo, sec.id, name, it.img)+
+            '<span class="nm">'+name+'</span>'+
+            '<span class="lead-dots"></span>'+
+            '<span class="pr">€ '+it.p+'</span>'+
+          '</div>';
+      }
     });
     html += '</section>';
   });
