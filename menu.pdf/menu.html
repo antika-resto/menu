@@ -312,57 +312,61 @@ var LANGS = [
 /* Structure du menu : sections -> items {k:clé, ph:photo, p:prix, pp:par pers, min2, tags[]} */
 var MENU = [
   {id:"entrees", items:[
-    {k:"calamars", ph:"calamars", p:"11"},
-    {k:"croq_bruges", ph:"croquettes-bruges", p:"9"},
-    {k:"scampi", ph:"scampi-ail", p:"15"},
-    {k:"carpaccio", ph:"carpaccio-truffe", p:"15"},
-    {k:"tapas", ph:"tapas-plancha", p:"10", pp:true, tags:["min2"]},
-    {k:"croq_crevettes", ph:"croquettes-crevettes", p:"14"},
-    {k:"caesar", ph:"salade-caesar", p:"15"},
-    {k:"chevre", ph:"fromage-chevre", p:"16"}
+    {k:"calamars", ph:"calamars", p:"13,50"},
+    {k:"croq_bruges", ph:"croquettes-bruges", p:"16,50"},
+    {k:"scampi", ph:"scampi-ail", p:"18"},
+    {k:"carpaccio", ph:"carpaccio-truffe", p:"19,50"},
+    {k:"tapas", ph:"tapas-plancha", p:"12,50", pp:true, tags:["min2"]},
+    {k:"croq_crevettes", ph:"croquettes-crevettes", p:"19,50"}
+  ]},
+  {id:"salade", items:[
+    {k:"caesar", ph:"salade-caesar", p:"22,50"},
+    {k:"chevre", ph:"fromage-chevre", p:"23,50"}
   ]},
   {id:"pates", items:[
-    {k:"penne", ph:"penne-prosciutto", p:"16"},
-    {k:"serenade", ph:"pates-saumon", p:"18"},
-    {k:"aglio", ph:"aglio-olio", p:"14"},
-    {k:"teresa", ph:"pates-teresa", p:"15"}
+    {k:"penne", ph:"penne-prosciutto", p:"22,50"},
+    {k:"serenade", ph:"pates-saumon", p:"24,50"},
+    {k:"aglio", ph:"aglio-olio", p:"18,50"},
+    {k:"teresa", ph:"pates-teresa", p:"19,50"}
   ]},
   {id:"grillade", note:true, items:[
     {k:"poulet_grille", ph:"poulet-grille", p:"24"},
     {k:"agneau", ph:"cotes-agneau", p:"31"},
-    {k:"filet_mignon", ph:"filet-mignon", p:"30"},
-    {k:"filet_pur", ph:"filet-pur", p:"35"}
+    {k:"filet_mignon", ph:"filet-mignon", p:"34,50"},
+    {k:"filet_pur", ph:"filet-pur", p:"39,50"}
   ]},
   {id:"mer", items:[
-    {k:"gambas", ph:"gambas", p:"25"},
-    {k:"daurade", ph:"daurade", p:"28"},
-    {k:"barre", ph:"barre", p:"27"},
-    {k:"saumon", ph:"saumon", p:"26"},
-    {k:"dela_mare", ph:"dela-mare", p:"35", pp:true, tags:["min2"]}
+    {k:"gambas", ph:"gambas", p:"28"},
+    {k:"daurade", ph:"daurade", p:"32"},
+    {k:"barre", ph:"barre", p:"30"},
+    {k:"saumon", ph:"saumon", p:"31"},
+    {k:"dela_mare", ph:"dela-mare", p:"38", pp:true, tags:["min2"]}
   ]},
   {id:"albanaises", items:[
-    {k:"pleskavica", ph:"pleskavica", p:"18"},
-    {k:"combi", ph:"combi-trio", p:"21"},
-    {k:"spicy", ph:"spicy-treasure", p:"27"},
-    {k:"dela_terra", ph:"dela-terra", p:"28", pp:true, tags:["min2"]},
-    {k:"dela_mare", ph:"dela-mare", p:"35", pp:true, tags:["min2"]},
+    {k:"pleskavica", ph:"pleskavica", p:"24,50"},
+    {k:"combi", ph:"combi-trio", p:"27,50"},
+    {k:"spicy", ph:"spicy-treasure", p:"29"},
+    {k:"dela_terra", ph:"dela-terra", p:"32", pp:true, tags:["min2"]},
+    {k:"dela_mare", ph:"dela-mare", p:"38", pp:true, tags:["min2"]},
     {k:"sofra_art", ph:"sofra", p:"25", pp:true, tags:["sundayonly","min2"]},
-    {k:"fli", ph:"fli", p:"9"},
-    {k:"poivrons_rotis", ph:"poivrons-rotis", p:"12"},
-    {k:"qebapa", ph:"qebapa", p:"15"},
-    {k:"salade_paysanne", ph:"salade-paysanne", p:"12"},
-    {k:"poivrons_saumures", ph:"poivrons-saumures", p:"7"},
-    {k:"tzatziki", ph:"tzatziki", p:"6"}
+    {k:"qebapa", ph:"qebapa", p:"15"}
+  ]},
+  {id:"bijgerechten", items:[
+    {k:"fli", ph:"fli", p:"12"},
+    {k:"poivrons_rotis", ph:"poivrons-rotis", p:"15"},
+    {k:"salade_paysanne", ph:"salade-paysanne", p:"16"},
+    {k:"tzatziki", ph:"tzatziki", p:"14"},
+    {k:"poivrons_saumures", ph:"poivrons-saumures", p:"10"}
   ]},
   {id:"burger", items:[
-    {k:"bigbaba", ph:"burger-bigbaba", p:"15"},
-    {k:"poulet_boeuf", ph:"burger-poulet-boeuf", p:"14"},
-    {k:"veggie", ph:"burger-veggie", p:"13"}
+    {k:"bigbaba", ph:"burger-bigbaba", p:"21"},
+    {k:"poulet_boeuf", ph:"burger-poulet-boeuf", p:"19"},
+    {k:"veggie", ph:"burger-veggie", p:"18"}
   ]},
   {id:"enfants", items:[
-    {k:"nuggets", ph:"nuggets", p:"10"},
-    {k:"pates_enfant", ph:"pates-enfant", p:"10"},
-    {k:"burger_enfant", ph:"burger-enfant", p:"10"}
+    {k:"nuggets", ph:"nuggets", p:"12,50"},
+    {k:"pates_enfant", ph:"pates-enfant", p:"12,50"},
+    {k:"burger_enfant", ph:"burger-enfant", p:"12,50"}
   ]}
 ];
 
@@ -373,10 +377,12 @@ var I18N = {
     hero:{ lead:"Pain, sel & cœur.", al:"Bukë, kripë e zemër", note:"Un proverbe qui exprime parfaitement ce que représentent les Albanais." },
     sections:{
       entrees:{s:"Pour commencer", t:"Entrées"},
+      salade:{s:"Fraîcheur", t:"Salades"},
       pates:{s:"Fait maison", t:"Pâtes"},
       grillade:{s:"Du grill", t:"Grillades"},
       mer:{s:"Fraîcheur", t:"De la Mer"},
       albanaises:{s:"Nos racines", t:"Spécialités Albanaises"},
+      bijgerechten:{s:"À partager", t:"Accompagnements"},
       burger:{s:"Signature", t:"Burgers"},
       enfants:{s:"Pour les petits", t:"Enfants"},
       sofra:{s:"La table du dimanche", t:"Sofra"}
@@ -395,10 +401,10 @@ var I18N = {
       serenade:{n:"Sérénade de pâtes au saumon", d:"Saumon frais et pâtes al dente, herbes subtiles et sauce délicate."},
       aglio:{n:"Pâtes aglio & olio delizia", d:"Huile d'olive, ail, flocons de piment, parmesan et herbes fraîches."},
       teresa:{n:"Pâtes du village Teresa", d:"Les meilleurs légumes de saison, pâtes al dente et sauce savoureuse."},
-      poulet_grille:{n:"Filet de poulet grillé", d:"Filet de poulet grillé, servi avec salade fraîche et frites."},
-      agneau:{n:"Côtes d'agneau du village", d:"Côtelettes d'agneau, légumes grillés et pommes de terre."},
-      filet_mignon:{n:"Steak filet mignon", d:"Filet de bœuf tendre, servi avec frites et salade fraîche."},
-      filet_pur:{n:"Steak filet pur", d:"Filet pur, asperges grillées, purée de carottes à la crème de truffe."},
+      poulet_grille:{n:"Filet de poulet grillé", d:"Filet de poulet grillé, servi avec salade fraîche et frites. Sauce au choix incluse."},
+      agneau:{n:"Côtes d'agneau du village", d:"Côtelettes d'agneau, légumes grillés et pommes de terre. Sauce au choix incluse."},
+      filet_mignon:{n:"Steak filet mignon", d:"Filet de bœuf tendre, servi avec frites et salade fraîche. Sauce au choix incluse."},
+      filet_pur:{n:"Steak filet pur", d:"Filet pur, asperges grillées, purée de carottes à la crème de truffe. Sauce au choix incluse."},
       gambas:{n:"Gambas grillées du chef", d:"Assaisonnées, sauce au beurre de citron, croquettes et salade fraîche."},
       daurade:{n:"Daurade", d:"Daurade fraîche grillée à la perfection, légumes, pommes de terre, sauce beurre-citron."},
       barre:{n:"Barre", d:"Filet de poisson raffiné grillé à la méditerranéenne, purée de brocoli et légumes verts."},
@@ -431,10 +437,12 @@ var I18N = {
     hero:{ lead:"Brood, zout & hart.", al:"Bukë, kripë e zemer", note:"Dit spreekwoord drukt perfect uit wat de Albanezen vertegenwoordigen." },
     sections:{
       entrees:{s:"Om te beginnen", t:"Voorgerechten"},
+      salade:{s:"Vers", t:"Salades"},
       pates:{s:"Huisgemaakt", t:"Pasta"},
       grillade:{s:"Van de grill", t:"Van de Grill"},
       mer:{s:"Vers", t:"Van de Zee"},
       albanaises:{s:"Onze wortels", t:"Albanese Specialiteiten"},
+      bijgerechten:{s:"Om te delen", t:"Bijgerechten"},
       burger:{s:"Signature", t:"Burgers"},
       enfants:{s:"Voor de kleintjes", t:"Kinderen"},
       sofra:{s:"De zondagstafel", t:"Sofra"}
@@ -453,10 +461,10 @@ var I18N = {
       serenade:{n:"Serenade van zalm pasta", d:"Harmonieus samenspel van verse zalm en al dente pasta, subtiele kruiden en heerlijke saus."},
       aglio:{n:"Aglio & olio delizia pasta", d:"Al dente pasta met olijfolie, knoflook, chilivlokken, Parmezaan en verse kruiden."},
       teresa:{n:"Teresa village pasta", d:"De beste seizoensgroenten, gecombineerd met al dente pasta en een smaakvolle saus."},
-      poulet_grille:{n:"Gegrilde kipfilet", d:"Malse kipfilet, gegrild en geserveerd met een frisse salade en frieten."},
-      agneau:{n:"Village lamskoteletten", d:"Sappige lamskoteletten met gegrilde groenten en aardappelen."},
-      filet_mignon:{n:"Steak filet mignon", d:"Malse biefstukfilet, geserveerd met frieten en een frisse salade."},
-      filet_pur:{n:"Steak filet pur", d:"Filet pur met gegrilde asperges en truffelcrème-wortelpuree, op mediterrane wijze."},
+      poulet_grille:{n:"Gegrilde kipfilet", d:"Malse kipfilet, gegrild en geserveerd met een frisse salade en frieten. Saus naar keuze inbegrepen."},
+      agneau:{n:"Village lamskoteletten", d:"Sappige lamskoteletten met gegrilde groenten en aardappelen. Saus naar keuze inbegrepen."},
+      filet_mignon:{n:"Steak filet mignon", d:"Malse biefstukfilet, geserveerd met frieten en een frisse salade. Saus naar keuze inbegrepen."},
+      filet_pur:{n:"Steak filet pur", d:"Filet pur met gegrilde asperges en truffelcrème-wortelpuree, op mediterrane wijze. Saus naar keuze inbegrepen."},
       gambas:{n:"Gegrilde gambas van de chef", d:"Perfect gekruid met citroenbotersaus, kroketten en een frisse salade."},
       daurade:{n:"Dorade", d:"Frisse, delicate dorade in zijn geheel, gegrild met groenten, aardappelen en citroenbotersaus."},
       barre:{n:"Zeebaars", d:"Verfijnde visfilet, mediterraans gegrild, met broccolipuree en groene seizoensgroenten."},
@@ -489,10 +497,12 @@ var I18N = {
     hero:{ lead:"Bread, salt & heart.", al:"Bukë, kripë e zemer", note:"This proverb perfectly expresses what the Albanians represent." },
     sections:{
       entrees:{s:"To start", t:"Starters"},
+      salade:{s:"Fresh", t:"Salads"},
       pates:{s:"Homemade", t:"Pasta"},
       grillade:{s:"From the grill", t:"From the Grill"},
       mer:{s:"Fresh", t:"From the Sea"},
       albanaises:{s:"Our roots", t:"Albanian Specials"},
+      bijgerechten:{s:"To share", t:"Sides"},
       burger:{s:"Signature", t:"Burgers"},
       enfants:{s:"For the little ones", t:"Kids"},
       sofra:{s:"The Sunday table", t:"Sofra"}
@@ -511,10 +521,10 @@ var I18N = {
       serenade:{n:"Serenade of salmon pasta", d:"A harmonious blend of fresh salmon and al dente pasta, subtle herbs and a delicious sauce."},
       aglio:{n:"Aglio & olio delizia pasta", d:"Al dente pasta with olive oil, garlic, chili flakes, a touch of Parmesan and fresh herbs."},
       teresa:{n:"Teresa village pasta", d:"The best seasonal vegetables combined with al dente pasta and a flavorful sauce."},
-      poulet_grille:{n:"Grilled chicken breast", d:"Tender chicken breast, grilled and served with a fresh salad and fries."},
-      agneau:{n:"Village lamb chops", d:"Juicy lamb chops with grilled vegetables and potatoes."},
-      filet_mignon:{n:"Steak filet mignon", d:"Tender beef steak, served with fries and a fresh salad."},
-      filet_pur:{n:"Steak filet pur", d:"Filet mignon with grilled asparagus and truffle cream carrot purée, Mediterranean style."},
+      poulet_grille:{n:"Grilled chicken breast", d:"Tender chicken breast, grilled and served with a fresh salad and fries. Sauce of your choice included."},
+      agneau:{n:"Village lamb chops", d:"Juicy lamb chops with grilled vegetables and potatoes. Sauce of your choice included."},
+      filet_mignon:{n:"Steak filet mignon", d:"Tender beef steak, served with fries and a fresh salad. Sauce of your choice included."},
+      filet_pur:{n:"Steak filet pur", d:"Filet mignon with grilled asparagus and truffle cream carrot purée, Mediterranean style. Sauce of your choice included."},
       gambas:{n:"Grilled chef's gambas", d:"Perfectly seasoned with a lemon butter sauce, croquettes and a fresh salad."},
       daurade:{n:"Seabream", d:"Fresh, delicate whole dorade, grilled with vegetables, potatoes and a light lemon butter sauce."},
       barre:{n:"Seabass", d:"A refined fish fillet grilled Mediterranean style, with broccoli purée and green seasonal vegetables."},
@@ -547,10 +557,12 @@ var I18N = {
     hero:{ lead:"Bukë, kripë & zemër.", al:"Bukë, kripë e zemer", note:"Ky fjalëthënie shpreh përkryer se çfarë përfaqësojnë shqiptarët." },
     sections:{
       entrees:{s:"Për të filluar", t:"Antipasta"},
+      salade:{s:"Të freskëta", t:"Sallata"},
       pates:{s:"Shtëpiake", t:"Pasta"},
       grillade:{s:"Nga grilli", t:"Nga Grilli"},
       mer:{s:"Të freskëta", t:"Nga Deti"},
       albanaises:{s:"Rrënjët tona", t:"Specialitete Shqiptare"},
+      bijgerechten:{s:"Për të ndarë", t:"Pjata anësore"},
       burger:{s:"Signature", t:"Burgera"},
       enfants:{s:"Për të vegjlit", t:"Fëmijët"},
       sofra:{s:"Tryeza e së dielës", t:"Sofra"}
@@ -569,10 +581,10 @@ var I18N = {
       serenade:{n:"Pasta serenade me salmon", d:"Bashkëpunim harmonik i salmonit të freskët dhe pastës al dente, erëza delikate dhe salcë e shijshme."},
       aglio:{n:"Aglio & olio delizia pasta", d:"Pasta al dente me salcë vaj ulliri, hudhër dhe vaj djegës, prekje djathi parmezan dhe erëza të freskëta."},
       teresa:{n:"Pasta me perime — Teresa", d:"Perimet më të mira të stinës, të kombinuara me pasta al dente dhe salcë me shije."},
-      poulet_grille:{n:"Filet pule në grill", d:"Pulë e pjekur në grill, e shërbyer me sallatë të freskët dhe patate."},
-      agneau:{n:"Kotleta qingj fshati", d:"Kotleta qingji të shijshme me perime të pjekura dhe patate."},
-      filet_mignon:{n:"Steak filet mignon", d:"Biftek i butë, i shërbyer me patate të skuqura dhe sallatë të freskët."},
-      filet_pur:{n:"Steak filet pur", d:"Filet pur me shpargje të pjekura, pure karotash me krem trufe, në stilin mesdhetar."},
+      poulet_grille:{n:"Filet pule në grill", d:"Pulë e pjekur në grill, e shërbyer me sallatë të freskët dhe patate. Salcë sipas zgjedhjes e përfshirë."},
+      agneau:{n:"Kotleta qingj fshati", d:"Kotleta qingji të shijshme me perime të pjekura dhe patate. Salcë sipas zgjedhjes e përfshirë."},
+      filet_mignon:{n:"Steak filet mignon", d:"Biftek i butë, i shërbyer me patate të skuqura dhe sallatë të freskët. Salcë sipas zgjedhjes e përfshirë."},
+      filet_pur:{n:"Steak filet pur", d:"Filet pur me shpargje të pjekura, pure karotash me krem trufe, në stilin mesdhetar. Salcë sipas zgjedhjes e përfshirë."},
       gambas:{n:"Gambas të pjekura nga shefi", d:"Të aromatizuara në mënyrë perfekte me salcë gjalpi dhe limoni, kroketë dhe sallatë të freskët."},
       daurade:{n:"Doradë", d:"Doradë e freskët e pjekur në tërësi me perime, patate dhe salcë e lehtë gjalpi e limoni."},
       barre:{n:"Bar deti", d:"Fileto peshku e rafinuar, e pjekur në stilin mesdhetar, me pure brokoli dhe perime të freskëta të stinës."},

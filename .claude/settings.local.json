@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -rn \"menu-fr.pdf\\\\|menu-nl.pdf\\\\|menu-en.pdf\\\\|menu-al.pdf\" . --include=\"*.html\" --include=\"*.json\")",
+      "Bash(echo \"exit:$?\")",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(node *)",
+      "Bash(magick \"/Users/rinor/Downloads/WhatsApp Image 2026-07-09 at 15.39.42.jpeg\" -crop 2050x2050+640+2470 +repage -resize 800x800^ -gravity center -extent 800x800 -quality 82 -strip photos/salade-paysanne.jpg)",
+      "Bash(identify photos/salade-paysanne.jpg)",
+      "Bash(mkdir -p /private/tmp/claude-501/-Users-rinor-Desktop-projet-2026-menu/e7c94c4b-c4f1-4ca5-8340-f52e1e2e4fe4/scratchpad/sheets)",
+      "Bash(magick -version)",
+      "WebFetch(domain:menu.antika-resto.ovh)",
+      "Bash(git add *)"
+    ]
+  }
+}

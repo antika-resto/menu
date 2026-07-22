@@ -25,15 +25,15 @@ window.DESSERTS = {
       {k:"italian", n:"Italian Coffee", p:"8,50", img:"italian.jpg"}
     ]},
     {id:"desserts", items:[
-      {k:"panna", n:"Panna Cotta Del Sol", p:"9,00", img:"panna.jpg"},
-      {k:"dreamisu", n:"Strawberry Dreamisu", p:"7,00", img:"dreamisu.jpg"},
-      {k:"lady", n:"Lady Blanche", p:"7,00", img:"lady.jpg"},
-      {k:"flame", n:"Crème de la Flame", p:"11,00", img:"flame.jpg"},
-      {k:"colonel", n:"The Ice Colonel", p:"10,00", img:"colonel.jpg"},
-      {k:"milkyway", n:"The 3 Milky Way", p:"8,00", img:"milkyway.jpg"},
+      {k:"panna", n:"Panna Cotta Del Sol", p:"9,50", img:"panna.jpg"},
+      {k:"dreamisu", n:"Strawberry Dreamisu", p:"9,00", img:"dreamisu.jpg"},
+      {k:"lady", n:"Lady Blanche", p:"9,50", img:"lady.jpg"},
+      {k:"flame", n:"Crème de la Flame", p:"12,50", img:"flame.jpg"},
+      {k:"colonel", n:"The Ice Colonel", p:"11,50", img:"colonel.jpg"},
+      {k:"milkyway", n:"The 3 Milky Way", p:"9,00", img:"milkyway.jpg"},
       {k:"meltdown", n:"Chocolate Meltdown", p:"9,00", img:"meltdown.jpg"},
-      {k:"balkan", n:"Artisan Balkan desserts", p:"6,00", img:"balkan.jpg"},
-      {k:"koffiebeleving", n:"Gourmet coffee experience", p:"8,00", img:"koffiebeleving.jpg"}
+      {k:"balkan", n:"Artisan Balkan desserts", p:"8,50", img:"balkan.jpg"},
+      {k:"koffiebeleving", n:"Gourmet coffee experience", p:"11,00", img:"koffiebeleving.jpg"}
     ]},
     {id:"digestif", items:[
       {k:"raki", n:"Raki", p:"7,90", logo:"raki.png"},
