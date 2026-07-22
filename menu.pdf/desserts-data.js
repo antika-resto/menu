@@ -28,7 +28,7 @@ window.DESSERTS = {
       {k:"panna", n:"Panna Cotta Del Sol", p:"9,50", img:"panna.jpg"},
       {k:"dreamisu", n:"Strawberry Dreamisu", p:"9,00", img:"dreamisu.jpg"},
       {k:"lady", n:"Lady Blanche", p:"9,50", img:"lady.jpg"},
-      {k:"flame", n:"Crème de la Flame", p:"12,50", img:"flame.jpg"},
+      {k:"flame", n:"Crème de la Flame", p:"11,00", img:"flame.jpg"},
       {k:"colonel", n:"The Ice Colonel", p:"11,50", img:"colonel.jpg"},
       {k:"milkyway", n:"The 3 Milky Way", p:"9,00", img:"milkyway.jpg"},
       {k:"meltdown", n:"Chocolate Meltdown", p:"9,00", img:"meltdown.jpg"},
