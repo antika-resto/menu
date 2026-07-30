@@ -214,6 +214,75 @@
     .item .nm{font-size:22px}
     .hero .lead{font-size:26px}
   }
+  /* ---------- Rappel « Nourriture » en bas de la carte boissons ---------- */
+  .foodblock .fb-top{margin-top:48px;padding-top:38px;border-top:1px solid var(--line-strong)}
+  .foodblock .chef{
+    margin:20px 0 6px;border:1px solid var(--line-strong);border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg,#fffdf7,#ffffff);box-shadow:0 12px 34px rgba(40,30,10,.09);
+  }
+  .foodblock .chef-ph{width:100%;height:212px;object-fit:cover;display:block}
+  .foodblock .chef-body{padding:18px 18px 20px}
+  .foodblock .chef-eyebrow{
+    font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--gold);display:flex;align-items:center;gap:7px;
+  }
+  .foodblock .chef-eyebrow::before{content:"★";font-size:12px;line-height:1}
+  .foodblock .chef-titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:7px 0 9px}
+  .foodblock .chef-title{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.1}
+  .foodblock .chef-price{font-family:var(--serif);font-weight:600;font-size:27px;color:var(--gold);white-space:nowrap}
+  .foodblock .chef-desc{font-size:14px;color:var(--muted);line-height:1.55}
+  .foodblock .chef-plabel{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink);margin:15px 0 9px}
+  .foodblock .chef-preps{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .foodblock .chef-preps li{font-size:13.5px;color:var(--ink);line-height:1.45;padding-left:16px;position:relative}
+  .foodblock .chef-preps li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold-soft)}
+  .foodblock .chef-preps b{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--gold)}
+  .foodblock .item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .foodblock .item:last-child{border-bottom:0}
+  .foodblock .item .txt{flex:1 1 auto;min-width:0}
+  .foodblock .item .row1{display:flex;align-items:baseline;gap:8px}
+  .foodblock .item .nm{
+    font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.2;
+    letter-spacing:.01em;color:var(--ink);
+  }
+  .foodblock .item .lead-dots{
+    flex:1 1 auto;border-bottom:1px dotted var(--line-strong);
+    transform:translateY(-3px);min-width:14px;
+  }
+  .foodblock .item .pr{
+    font-family:var(--serif);font-weight:600;font-size:19px;
+    color:var(--gold);white-space:nowrap;flex:0 0 auto;
+  }
+  .foodblock .item .pr small{font-size:11px;font-weight:500;color:var(--muted);font-family:var(--sans);letter-spacing:.02em}
+  .foodblock .item .desc{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5;max-width:44ch}
+  .foodblock .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .foodblock .badge{
+    font-size:10.5px;font-weight:600;letter-spacing:.03em;
+    color:var(--gold);background:#faf5ea;border:1px solid #efe3c8;
+    padding:3px 9px;border-radius:999px;
+  }
+  .foodblock .badge.day{color:#8a5a1e;background:#fbf1e4;border-color:#f0dcc2}
+  .foodblock .item .ph{
+    flex:0 0 auto;width:92px;height:92px;border-radius:14px;
+    object-fit:cover;background:#f3efe8;box-shadow:0 4px 14px rgba(40,30,10,.10);
+  }
+  .foodblock .item.nophoto .ph{display:none}
+  .foodblock .foot-note{
+    font-size:12px;color:var(--muted);line-height:1.6;
+    background:#faf8f3;border:1px solid var(--line);border-radius:14px;
+    padding:13px 15px;margin-top:16px;
+  }
+  .foodblock .foot-note b{color:var(--ink);font-weight:600}
+  @media (min-width:560px){
+    .foodblock .chef{display:flex;align-items:stretch}
+    .foodblock .chef-ph{width:44%;height:auto;min-height:236px}
+    .foodblock .chef-body{flex:1 1 auto;padding:24px 26px;align-self:center}
+    .foodblock .chef-title{font-size:34px}
+    .foodblock .item .ph{width:104px;height:104px}
+    .foodblock .item .nm{font-size:22px}
+  }
 </style>
 </head>
 <body>
@@ -257,7 +326,74 @@ var LANGS = [
   {code:"al", flag:"🇦🇱", label:"Shqip"}
 ];
 
-var B, DZ;  /* remplis après chargement anti-cache des données */
+var B, DZ, FOOD;  /* remplis après chargement anti-cache des données */
+
+/* Titre du rappel Nourriture en bas de la carte boissons */
+var FOOD_HEAD = {
+  fr:{s:"À table", t:"Notre carte Nourriture"},
+  nl:{s:"Aan tafel", t:"Onze gerechten"},
+  en:{s:"Let's eat", t:"Our Food Menu"},
+  al:{s:"Në tryezë", t:"Menuja jonë"}
+};
+
+/* Construit le rappel Nourriture (suggestion du chef + cartes plats),
+   même rendu que la page nourriture, dans un conteneur isolé .foodblock */
+function foodBlockHtml(lang){
+  if(!FOOD) return "";
+  var FL = FOOD.i18n[lang] || FOOD.i18n.fr;
+  var cf = FOOD.chef[lang] || FOOD.chef.fr;
+  var fh = FOOD_HEAD[lang] || FOOD_HEAD.fr;
+
+  var h = '<div class="foodblock">'+
+    '<div class="sec-head fb-top"><span class="s">'+fh.s+'</span>'+
+      '<div class="t">'+fh.t+'</div><div class="rule"><span class="dot"></span></div></div>';
+
+  // Suggestion du chef
+  h += '<div class="chef">'+
+      '<img class="chef-ph" loading="lazy" src="'+FOOD.chef.img+'" alt="'+cf.title+'">'+
+      '<div class="chef-body">'+
+        '<div class="chef-eyebrow">'+cf.eyebrow+'</div>'+
+        '<div class="chef-titlerow"><div class="chef-title">'+cf.title+'</div>'+
+          '<div class="chef-price">'+FOOD.chef.price+' €</div></div>'+
+        '<div class="chef-desc">'+cf.desc+'</div>'+
+        '<div class="chef-plabel">'+cf.plabel+'</div>'+
+        '<ul class="chef-preps">'+cf.preps.map(function(p){
+          return '<li><b>'+p[0]+'</b> — '+p[1]+'</li>';
+        }).join("")+'</ul>'+
+      '</div>'+
+    '</div>';
+
+  // Sections nourriture
+  FOOD.menu.forEach(function(sec){
+    var st = FL.sections[sec.id];
+    h += '<section id="'+sec.id+'"><div class="sec-head"><span class="s">'+st.s+'</span>'+
+      '<div class="t">'+st.t+'</div><div class="rule"><span class="dot"></span></div></div>';
+    sec.items.forEach(function(it){
+      var t = FL.items[it.k] || {n:it.k, d:""};
+      var priceExtra = it.pp ? ' <small>'+FL.ui.perPers+'</small>' : '';
+      var badges = "";
+      if(it.tags){
+        badges = '<div class="badges">'+it.tags.map(function(tg){
+          if(tg==="min2") return '<span class="badge">'+FL.ui.min2+'</span>';
+          if(tg==="sundayonly") return '<span class="badge day">'+FL.ui.sundayonly+'</span>';
+          return "";
+        }).join("")+'</div>';
+      }
+      var img = it.ph ? '<img class="ph" loading="lazy" src="photos/'+it.ph+'.jpg" alt="'+t.n+'">' : '';
+      h += '<div class="item'+(it.ph?"":" nophoto")+'"><div class="txt">'+
+          '<div class="row1"><span class="nm">'+t.n+'</span><span class="lead-dots"></span>'+
+            '<span class="pr">€ '+it.p+priceExtra+'</span></div>'+
+          (t.d?'<div class="desc">'+t.d+'</div>':'')+badges+
+        '</div>'+img+'</div>';
+    });
+    if(sec.note && FL.notes[sec.id]){
+      h += '<div class="foot-note">'+FL.notes[sec.id]+'</div>';
+    }
+    h += '</section>';
+  });
+
+  return h + '</div>';
+}
 
 function getLang(){
   var p = new URLSearchParams(location.search).get("lang");
@@ -339,6 +475,12 @@ function render(lang){
   chips += tail.map(function(x){
     return '<a class="chip" data-sec="'+x.sec.id+'" href="#'+x.sec.id+'">'+x.head.t+'</a>';
   }).join("");
+  if(FOOD){
+    var FLc = FOOD.i18n[lang] || FOOD.i18n.fr;
+    chips += FOOD.menu.map(function(sec){
+      return '<a class="chip" data-sec="'+sec.id+'" href="#'+sec.id+'">'+FLc.sections[sec.id].t+'</a>';
+    }).join("");
+  }
   document.getElementById("cats").innerHTML = chips;
 
   // hero
@@ -356,6 +498,9 @@ function render(lang){
   tail.forEach(function(x){
     html += sectionHtml(x.sec.id, x.head, x.sec.items, DL);
   });
+
+  // rappel Nourriture + suggestion du chef (éviter de revenir en arrière)
+  html += foodBlockHtml(lang);
 
   // footer
   html += '<footer>'+
@@ -410,8 +555,8 @@ function wireScrollSpy(){
       document.head.appendChild(s);
     });
   }
-  Promise.all([load("boisson-data.js"), load("desserts-data.js")]).then(function(){
-    B = window.BOISSON; DZ = window.DESSERTS;
+  Promise.all([load("boisson-data.js"), load("desserts-data.js"), load("food-data.js")]).then(function(){
+    B = window.BOISSON; DZ = window.DESSERTS; FOOD = window.FOOD;
     render(getLang());
   });
 })();
