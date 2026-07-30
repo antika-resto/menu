@@ -352,21 +352,23 @@ function render(lang){
       '<div class="note">'+L.hero.note+'</div>'+
     '</div>';
 
-  // recommandation du chef
-  var cf = CHEF[lang] || CHEF.fr;
-  html += '<div class="chef">'+
-      '<img class="chef-ph" loading="lazy" src="'+CHEF.img+'" alt="'+cf.title+'">'+
-      '<div class="chef-body">'+
-        '<div class="chef-eyebrow">'+cf.eyebrow+'</div>'+
-        '<div class="chef-titlerow"><div class="chef-title">'+cf.title+'</div>'+
-          '<div class="chef-price">'+CHEF.price+' €</div></div>'+
-        '<div class="chef-desc">'+cf.desc+'</div>'+
-        '<div class="chef-plabel">'+cf.plabel+'</div>'+
-        '<ul class="chef-preps">'+cf.preps.map(function(p){
-          return '<li><b>'+p[0]+'</b> — '+p[1]+'</li>';
-        }).join("")+'</ul>'+
-      '</div>'+
-    '</div>';
+  // recommandation du chef (affichée seulement si active)
+  if(CHEF && CHEF.active !== false){
+    var cf = CHEF[lang] || CHEF.fr;
+    html += '<div class="chef">'+
+        '<img class="chef-ph" loading="lazy" src="'+CHEF.img+'" alt="'+cf.title+'">'+
+        '<div class="chef-body">'+
+          '<div class="chef-eyebrow">'+cf.eyebrow+'</div>'+
+          '<div class="chef-titlerow"><div class="chef-title">'+cf.title+'</div>'+
+            '<div class="chef-price">'+CHEF.price+' €</div></div>'+
+          '<div class="chef-desc">'+cf.desc+'</div>'+
+          '<div class="chef-plabel">'+cf.plabel+'</div>'+
+          '<ul class="chef-preps">'+cf.preps.map(function(p){
+            return '<li><b>'+p[0]+'</b> — '+p[1]+'</li>';
+          }).join("")+'</ul>'+
+        '</div>'+
+      '</div>';
+  }
 
   // sections
   MENU.forEach(function(sec){
