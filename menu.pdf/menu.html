@@ -294,8 +294,6 @@
   <div class="cap" id="lbcap"></div>
 </div>
 
-<script src="food-data.js"></script>
-<script src="desserts-data.js"></script>
 <script src="icons.js"></script>
 <script>
 /* ============================================================
@@ -303,20 +301,10 @@
    Pour ajouter une langue : compléter l'objet I18N.
    ============================================================ */
 
-var LANGS = FOOD.langs;
+/* Données chargées dynamiquement plus bas (anti-cache) */
+var LANGS, MENU, I18N, CHEF;
 
-/* Structure du menu : sections -> items {k:clé, ph:photo, p:prix, pp:par pers, min2, tags[]} */
-var MENU = FOOD.menu;
-
-var I18N = FOOD.i18n;
-
-/* ============================================================
-   MOTEUR DE RENDU
-   ============================================================ */
 var PHOTOS = "photos/";
-
-/* Recommandation du chef — affichée en haut de la carte nourriture */
-var CHEF = FOOD.chef;
 
 function getLang(){
   var p = new URLSearchParams(location.search).get("lang");
@@ -509,7 +497,25 @@ function wireScrollSpy(){
   });
 }
 
-render(getLang());
+/* ============================================================
+   Chargement anti-cache des données : ?v=<timestamp> unique à chaque
+   ouverture -> le navigateur et le CDN GitHub Pages ne servent jamais
+   d'anciens prix. Les données sont toujours fraîches au rafraîchissement.
+   ============================================================ */
+(function(){
+  var v = "?v=" + Date.now();
+  function load(src){
+    return new Promise(function(res, rej){
+      var s = document.createElement("script");
+      s.src = src + v; s.onload = res; s.onerror = rej;
+      document.head.appendChild(s);
+    });
+  }
+  Promise.all([load("food-data.js"), load("desserts-data.js")]).then(function(){
+    LANGS = FOOD.langs; MENU = FOOD.menu; I18N = FOOD.i18n; CHEF = FOOD.chef;
+    render(getLang());
+  });
+})();
 </script>
 </body>
 </html>

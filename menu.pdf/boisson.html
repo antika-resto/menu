@@ -243,8 +243,6 @@
 
 <main id="main"></main>
 
-<script src="boisson-data.js"></script>
-<script src="desserts-data.js"></script>
 <script src="icons.js"></script>
 <script>
 /* ============================================================
@@ -259,8 +257,7 @@ var LANGS = [
   {code:"al", flag:"🇦🇱", label:"Shqip"}
 ];
 
-var B = window.BOISSON;
-var DZ = window.DESSERTS;
+var B, DZ;  /* remplis après chargement anti-cache des données */
 
 function getLang(){
   var p = new URLSearchParams(location.search).get("lang");
@@ -403,7 +400,21 @@ function wireScrollSpy(){
   });
 }
 
-render(getLang());
+/* Chargement anti-cache des données (voir menu.html) */
+(function(){
+  var v = "?v=" + Date.now();
+  function load(src){
+    return new Promise(function(res, rej){
+      var s = document.createElement("script");
+      s.src = src + v; s.onload = res; s.onerror = rej;
+      document.head.appendChild(s);
+    });
+  }
+  Promise.all([load("boisson-data.js"), load("desserts-data.js")]).then(function(){
+    B = window.BOISSON; DZ = window.DESSERTS;
+    render(getLang());
+  });
+})();
 </script>
 </body>
 </html>
