@@ -726,8 +726,8 @@ window.BOISSON = {
     "i18n": {
         "nl": {
             "hero": {
-                "lead": "Start de avond goed…",
-                "al": "…met de perfecte cocktail."
+                "al": "…met de perfecte cocktail.",
+                "lead": "Start de avond goed…"
             },
             "web": "antikaresto.com",
             "sections": {
@@ -761,21 +761,21 @@ window.BOISSON = {
                 }
             },
             "subs": {
-                "signature": "Signature",
-                "house": "Huisfavorieten",
-                "classics": "Klassiekers",
-                "mule": "Mule",
-                "mocktails": "Mocktails",
-                "champagne": "Champagne",
+                "gin": "Gin",
                 "rum": "Rum",
-                "whiskey": "Whisky",
+                "mule": "Mule",
+                "house": "Huisfavorieten",
                 "vodka": "Vodka",
-                "gin": "Gin"
+                "whiskey": "Whisky",
+                "classics": "Klassiekers",
+                "champagne": "Champagne",
+                "mocktails": "Mocktails",
+                "signature": "Signature"
             },
             "labels": {
-                "glass": "Glas",
-                "q": "1/4 L",
                 "h": "1/2 L",
+                "q": "1/4 L",
+                "glass": "Glas",
                 "bottle": "Fles",
                 "half375": "Halve fles · 37,5 cl",
                 "bottle75": "Fles · 75 cl"
@@ -800,8 +800,8 @@ window.BOISSON = {
         },
         "fr": {
             "hero": {
-                "lead": "Commencez la soirée comme il se doit…",
-                "al": "…avec le cocktail parfait."
+                "al": "…avec le cocktail parfait.",
+                "lead": "Commencez la soirée comme il se doit…"
             },
             "web": "antikaresto.com",
             "sections": {
@@ -835,21 +835,21 @@ window.BOISSON = {
                 }
             },
             "subs": {
-                "signature": "Signature",
-                "house": "Coups de cœur maison",
-                "classics": "Classiques",
-                "mule": "Mule",
-                "mocktails": "Mocktails",
-                "champagne": "Champagne",
+                "gin": "Gin",
                 "rum": "Rhum",
-                "whiskey": "Whisky",
+                "mule": "Mule",
+                "house": "Coups de cœur maison",
                 "vodka": "Vodka",
-                "gin": "Gin"
+                "whiskey": "Whisky",
+                "classics": "Classiques",
+                "champagne": "Champagne",
+                "mocktails": "Mocktails",
+                "signature": "Signature"
             },
             "labels": {
-                "glass": "Verre",
-                "q": "1/4 L",
                 "h": "1/2 L",
+                "q": "1/4 L",
+                "glass": "Verre",
                 "bottle": "Bouteille",
                 "half375": "1/2 bouteille · 37,5 cl",
                 "bottle75": "Bouteille · 75 cl"
@@ -874,8 +874,8 @@ window.BOISSON = {
         },
         "en": {
             "hero": {
-                "lead": "Start the evening right…",
-                "al": "…with the perfect cocktail."
+                "al": "…with the perfect cocktail.",
+                "lead": "Start the evening right…"
             },
             "web": "antikaresto.com",
             "sections": {
@@ -909,21 +909,21 @@ window.BOISSON = {
                 }
             },
             "subs": {
-                "signature": "Signature",
-                "house": "House favorites",
-                "classics": "Classics",
-                "mule": "Mule",
-                "mocktails": "Mocktails",
-                "champagne": "Champagne",
+                "gin": "Gin",
                 "rum": "Rum",
-                "whiskey": "Whiskey",
+                "mule": "Mule",
+                "house": "House favorites",
                 "vodka": "Vodka",
-                "gin": "Gin"
+                "whiskey": "Whiskey",
+                "classics": "Classics",
+                "champagne": "Champagne",
+                "mocktails": "Mocktails",
+                "signature": "Signature"
             },
             "labels": {
-                "glass": "Glass",
-                "q": "1/4 L",
                 "h": "1/2 L",
+                "q": "1/4 L",
+                "glass": "Glass",
                 "bottle": "Bottle",
                 "half375": "Half bottle · 37.5 cl",
                 "bottle75": "Bottle · 75 cl"
@@ -944,8 +944,8 @@ window.BOISSON = {
         },
         "al": {
             "hero": {
-                "lead": "Filloni mbrëmjen si duhet…",
-                "al": "…me koktejin perfekt."
+                "al": "…me koktejin perfekt.",
+                "lead": "Filloni mbrëmjen si duhet…"
             },
             "web": "antikaresto.com",
             "sections": {
@@ -979,21 +979,21 @@ window.BOISSON = {
                 }
             },
             "subs": {
-                "signature": "Signature",
-                "house": "Të preferuarat e shtëpisë",
-                "classics": "Klasikë",
-                "mule": "Mule",
-                "mocktails": "Mocktails",
-                "champagne": "Shampanjë",
+                "gin": "Gin",
                 "rum": "Rum",
-                "whiskey": "Whisky",
+                "mule": "Mule",
+                "house": "Të preferuarat e shtëpisë",
                 "vodka": "Vodka",
-                "gin": "Gin"
+                "whiskey": "Whisky",
+                "classics": "Klasikë",
+                "champagne": "Shampanjë",
+                "mocktails": "Mocktails",
+                "signature": "Signature"
             },
             "labels": {
-                "glass": "Gotë",
-                "q": "1/4 L",
                 "h": "1/2 L",
+                "q": "1/4 L",
+                "glass": "Gotë",
                 "bottle": "Shishe",
                 "half375": "Gjysmë shishe · 37,5 cl",
                 "bottle75": "Shishe · 75 cl"
