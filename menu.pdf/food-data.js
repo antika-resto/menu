@@ -29,7 +29,7 @@ window.FOOD = {
                 {
                     "k": "calamars",
                     "ph": "calamars",
-                    "p": "13,90"
+                    "p": "13,50"
                 },
                 {
                     "k": "croq_bruges",
