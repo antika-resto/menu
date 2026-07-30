@@ -29,7 +29,7 @@ window.FOOD = {
                 {
                     "k": "calamars",
                     "ph": "calamars",
-                    "p": "13,50"
+                    "p": "13,90"
                 },
                 {
                     "k": "croq_bruges",
@@ -289,17 +289,17 @@ window.FOOD = {
     "i18n": {
         "nl": {
             "ui": {
-                "perPers": "/ pers.",
+                "web": "antikaresto.com",
                 "min2": "min. 2 pers.",
-                "sundayonly": "Enkel op zondag verkrijgbaar",
+                "group": "Voor groepen van 6 personen of meer: keuze uit maximaal 6 verschillende gerechten.",
+                "perPers": "/ pers.",
                 "sunday1": "Zondag · 10u–13u",
                 "sunday2": "Zondag · 13u–21u",
-                "group": "Voor groepen van 6 personen of meer: keuze uit maximaal 6 verschillende gerechten.",
-                "web": "antikaresto.com"
+                "sundayonly": "Enkel op zondag verkrijgbaar"
             },
             "hero": {
-                "lead": "Brood, zout & hart.",
                 "al": "Bukë, kripë e zemer",
+                "lead": "Brood, zout & hart.",
                 "note": "Dit spreekwoord drukt perfect uit wat de Albanezen vertegenwoordigen."
             },
             "sections": {
@@ -500,17 +500,17 @@ window.FOOD = {
         },
         "fr": {
             "ui": {
-                "perPers": "/ pers.",
+                "web": "antikaresto.com",
                 "min2": "min. 2 pers.",
-                "sundayonly": "Disponible uniquement le dimanche",
+                "group": "Pour les groupes de 6 personnes et plus, choix de 6 plats maximum.",
+                "perPers": "/ pers.",
                 "sunday1": "Dimanche · 10h–13h",
                 "sunday2": "Dimanche · 13h–21h",
-                "group": "Pour les groupes de 6 personnes et plus, choix de 6 plats maximum.",
-                "web": "antikaresto.com"
+                "sundayonly": "Disponible uniquement le dimanche"
             },
             "hero": {
-                "lead": "Pain, sel & cœur.",
                 "al": "Bukë, kripë e zemër",
+                "lead": "Pain, sel & cœur.",
                 "note": "Un proverbe qui exprime parfaitement ce que représentent les Albanais."
             },
             "sections": {
@@ -711,17 +711,17 @@ window.FOOD = {
         },
         "en": {
             "ui": {
-                "perPers": "/ pers.",
+                "web": "antikaresto.com",
                 "min2": "min. 2 pers.",
-                "sundayonly": "Available on Sundays only",
+                "group": "For groups of 6 or more, choose from up to 6 different dishes.",
+                "perPers": "/ pers.",
                 "sunday1": "Sunday · 10am–1pm",
                 "sunday2": "Sunday · 1pm–9pm",
-                "group": "For groups of 6 or more, choose from up to 6 different dishes.",
-                "web": "antikaresto.com"
+                "sundayonly": "Available on Sundays only"
             },
             "hero": {
-                "lead": "Bread, salt & heart.",
                 "al": "Bukë, kripë e zemer",
+                "lead": "Bread, salt & heart.",
                 "note": "This proverb perfectly expresses what the Albanians represent."
             },
             "sections": {
@@ -922,17 +922,17 @@ window.FOOD = {
         },
         "al": {
             "ui": {
-                "perPers": "/ pers.",
+                "web": "antikaresto.com",
                 "min2": "min. 2 persona",
-                "sundayonly": "Vetëm të dielën",
+                "group": "Për grupet prej 6 personash ose më shumë, zgjedhje deri në 6 pjata të ndryshme.",
+                "perPers": "/ pers.",
                 "sunday1": "Të dielën · 10:00–13:00",
                 "sunday2": "Të dielën · 13:00–21:00",
-                "group": "Për grupet prej 6 personash ose më shumë, zgjedhje deri në 6 pjata të ndryshme.",
-                "web": "antikaresto.com"
+                "sundayonly": "Vetëm të dielën"
             },
             "hero": {
-                "lead": "Bukë, kripë & zemër.",
                 "al": "Bukë, kripë e zemer",
+                "lead": "Bukë, kripë & zemër.",
                 "note": "Ky fjalëthënie shpreh përkryer se çfarë përfaqësojnë shqiptarët."
             },
             "sections": {
