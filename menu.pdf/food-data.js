@@ -1133,7 +1133,7 @@ window.FOOD = {
         }
     },
     "chef": {
-        "active": true,
+        "active": false,
         "img": "photos/moules-frites.jpg",
         "price": "27",
         "nl": {
