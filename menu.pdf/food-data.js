@@ -201,17 +201,12 @@ window.FOOD = {
                 {
                     "k": "sofra_art",
                     "ph": "sofra",
-                    "p": "25",
+                    "p": "30",
                     "pp": true,
                     "tags": [
                         "sundayonly",
                         "min2"
                     ]
-                },
-                {
-                    "k": "qebapa",
-                    "ph": "qebapa",
-                    "p": "20"
                 }
             ]
         },
@@ -242,6 +237,11 @@ window.FOOD = {
                     "k": "poivrons_saumures",
                     "ph": "poivrons-saumures",
                     "p": "10"
+                },
+                {
+                    "k": "qebapa",
+                    "ph": "qebapa",
+                    "p": "20"
                 }
             ]
         },
@@ -448,10 +448,6 @@ window.FOOD = {
                     "n": "Artisan Balkan sofra",
                     "d": "Weelderige Balkantafel: gegrild vlees, speciale deegwaren, vers brood en traditionele bijgerechten."
                 },
-                "qebapa": {
-                    "n": "Qebapa — Albanese gegrilde worstjes",
-                    "d": "Tien sappige gegrilde worstjes van gekruid rundvlees, een Albanese lekkernij."
-                },
                 "fli": {
                     "n": "Fli — traditionele Albanese pannenkoek",
                     "d": "Dunne, gestapelde pannenkoeken met romige vulling van yoghurt en kaas."
@@ -471,6 +467,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Gepekelde paprika's met yoghurt",
                     "d": "Gepekelde paprika's met romige, dikke yoghurt — zout en fris."
+                },
+                "qebapa": {
+                    "n": "Qebapa — Albanese gegrilde worstjes",
+                    "d": "Tien sappige gegrilde worstjes van gekruid rundvlees, een Albanese lekkernij."
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
@@ -659,10 +659,6 @@ window.FOOD = {
                     "n": "Sofra artisanale",
                     "d": "Table balkanique : viandes grillées, pâtes spéciales, pain frais et garnitures traditionnelles."
                 },
-                "qebapa": {
-                    "n": "Qebapa",
-                    "d": "Dix petites saucisses grillées de bœuf épicé, spécialité albanaise."
-                },
                 "fli": {
                     "n": "Fli — crêpe albanaise",
                     "d": "Fines crêpes empilées, garniture crémeuse de yaourt et fromage."
@@ -682,6 +678,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Poivrons saumurés au yaourt",
                     "d": "Poivrons saumurés servis avec un yaourt crémeux et épais."
+                },
+                "qebapa": {
+                    "n": "Qebapa",
+                    "d": "Dix petites saucisses grillées de bœuf épicé, spécialité albanaise."
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
@@ -870,10 +870,6 @@ window.FOOD = {
                     "n": "Artisan Balkan sofra",
                     "d": "A lavish Balkan table: grilled meats, special pastries, fresh bread and traditional sides."
                 },
-                "qebapa": {
-                    "n": "Qebapa — Albanian grilled sausages",
-                    "d": "Ten juicy grilled sausages of seasoned beef, a popular Albanian treat."
-                },
                 "fli": {
                     "n": "Fli — traditional Albanian pancake",
                     "d": "Thin, stacked pancakes with a creamy, savory filling of yogurt and cheese."
@@ -893,6 +889,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Pickled peppers with yogurt",
                     "d": "Pickled peppers served with creamy, thick yogurt — salty and fresh."
+                },
+                "qebapa": {
+                    "n": "Qebapa — Albanian grilled sausages",
+                    "d": "Ten juicy grilled sausages of seasoned beef, a popular Albanian treat."
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
@@ -1081,10 +1081,6 @@ window.FOOD = {
                     "n": "Sofra artizanale",
                     "d": "Sofra ballkanike: mish të pjekur, pjata speciale me brumë, bukë e sapopjekur dhe anësoqërues tradicionalë."
                 },
-                "qebapa": {
-                    "n": "Qebapa — nga Kosova",
-                    "d": "Dhjetë qebapa të shijshme të bëra nga mishi i viçit të aromatizuar, delikatesë shqiptare."
-                },
                 "fli": {
                     "n": "Fli — recetë tradicionale kosovare",
                     "d": "Fli të shtresuara, të shërbyera me mbushje kremoze e të kripur me djathë dhe jogurt."
@@ -1104,6 +1100,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Speca me ajkë",
                     "d": "Speca të turshi të shërbyera me kos të trashë kremoz — të kripur dhe të freskët."
+                },
+                "qebapa": {
+                    "n": "Qebapa — nga Kosova",
+                    "d": "Dhjetë qebapa të shijshme të bëra nga mishi i viçit të aromatizuar, delikatesë shqiptare."
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
@@ -1133,6 +1133,7 @@ window.FOOD = {
         }
     },
     "chef": {
+        "active": true,
         "img": "photos/moules-frites.jpg",
         "price": "27",
         "nl": {
