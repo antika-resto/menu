@@ -132,25 +132,8 @@
 
   <footer>Antika</footer>
 
-<script>
-  // Mode événement : si config.json => event.enabled = true,
-  // on saute le choix de langue et on affiche directement le menu de l'événement.
-  (function () {
-    var loading = document.getElementById('loading');
-    fetch('config.json?t=' + Date.now(), { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (cfg) {
-        if (cfg && cfg.event && cfg.event.enabled) {
-          window.location.replace(cfg.event.file || 'event.pdf');
-        } else {
-          loading.classList.add('hidden');
-        }
-      })
-      .catch(function () {
-        // pas de config lisible (ex: ouverture locale) => on affiche le choix de langue
-        loading.classList.add('hidden');
-      });
-  })();
-</script>
+<!-- Mode événement : logique partagée par les cinq pages (voir event-check.js).
+     Ici en fin de page car elle masque aussi l'écran « Chargement… ». -->
+<script src="event-check.js"></script>
 </body>
 </html>
