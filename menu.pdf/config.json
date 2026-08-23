@@ -1,6 +1,6 @@
 {
   "event": {
-    "enabled": true,
+    "enabled": false,
     "file": "event.pdf"
   }
 }
