@@ -237,11 +237,36 @@ window.FOOD = {
                     "k": "poivrons_saumures",
                     "ph": "poivrons-saumures",
                     "p": "10"
+                }
+            ]
+        },
+        {
+            "id": "supplements",
+            "items": [
+                {
+                    "k": "qebab",
+                    "ph": null,
+                    "p": "2,00"
                 },
                 {
-                    "k": "qebapa",
-                    "ph": "qebapa",
-                    "p": "20"
+                    "k": "qofte",
+                    "ph": null,
+                    "p": "2,50"
+                },
+                {
+                    "k": "suxhuk",
+                    "ph": null,
+                    "p": "6,50"
+                },
+                {
+                    "k": "steak_tataki",
+                    "ph": null,
+                    "p": "7,00"
+                },
+                {
+                    "k": "kotolet",
+                    "ph": null,
+                    "p": "8,00"
                 }
             ]
         },
@@ -330,6 +355,10 @@ window.FOOD = {
                 "bijgerechten": {
                     "s": "Om te delen",
                     "t": "Bijgerechten"
+                },
+                "supplements": {
+                    "s": "Per stuk",
+                    "t": "Extra vlees"
                 },
                 "burger": {
                     "s": "Signature",
@@ -468,9 +497,25 @@ window.FOOD = {
                     "n": "Gepekelde paprika's met yoghurt",
                     "d": "Gepekelde paprika's met romige, dikke yoghurt — zout en fris."
                 },
-                "qebapa": {
-                    "n": "Qebapa — Albanese gegrilde worstjes",
-                    "d": "Tien sappige gegrilde worstjes van gekruid rundvlees, een Albanese lekkernij."
+                "qebab": {
+                    "n": "Qebab",
+                    "d": ""
+                },
+                "qofte": {
+                    "n": "Qofte",
+                    "d": ""
+                },
+                "suxhuk": {
+                    "n": "Suxhuk",
+                    "d": ""
+                },
+                "steak_tataki": {
+                    "n": "Steak tataki",
+                    "d": ""
+                },
+                "kotolet": {
+                    "n": "Kotolet",
+                    "d": ""
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
@@ -541,6 +586,10 @@ window.FOOD = {
                 "bijgerechten": {
                     "s": "À partager",
                     "t": "Accompagnements"
+                },
+                "supplements": {
+                    "s": "À la pièce",
+                    "t": "Viande supplémentaire"
                 },
                 "burger": {
                     "s": "Signature",
@@ -679,9 +728,25 @@ window.FOOD = {
                     "n": "Poivrons saumurés au yaourt",
                     "d": "Poivrons saumurés servis avec un yaourt crémeux et épais."
                 },
-                "qebapa": {
-                    "n": "Qebapa",
-                    "d": "Dix petites saucisses grillées de bœuf épicé, spécialité albanaise."
+                "qebab": {
+                    "n": "Qebab",
+                    "d": ""
+                },
+                "qofte": {
+                    "n": "Qofte",
+                    "d": ""
+                },
+                "suxhuk": {
+                    "n": "Suxhuk",
+                    "d": ""
+                },
+                "steak_tataki": {
+                    "n": "Steak tataki",
+                    "d": ""
+                },
+                "kotolet": {
+                    "n": "Kotolet",
+                    "d": ""
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
@@ -752,6 +817,10 @@ window.FOOD = {
                 "bijgerechten": {
                     "s": "To share",
                     "t": "Sides"
+                },
+                "supplements": {
+                    "s": "Per piece",
+                    "t": "Extra Meat"
                 },
                 "burger": {
                     "s": "Signature",
@@ -890,9 +959,25 @@ window.FOOD = {
                     "n": "Pickled peppers with yogurt",
                     "d": "Pickled peppers served with creamy, thick yogurt — salty and fresh."
                 },
-                "qebapa": {
-                    "n": "Qebapa — Albanian grilled sausages",
-                    "d": "Ten juicy grilled sausages of seasoned beef, a popular Albanian treat."
+                "qebab": {
+                    "n": "Qebab",
+                    "d": ""
+                },
+                "qofte": {
+                    "n": "Qofte",
+                    "d": ""
+                },
+                "suxhuk": {
+                    "n": "Suxhuk",
+                    "d": ""
+                },
+                "steak_tataki": {
+                    "n": "Steak tataki",
+                    "d": ""
+                },
+                "kotolet": {
+                    "n": "Kotolet",
+                    "d": ""
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
@@ -963,6 +1048,10 @@ window.FOOD = {
                 "bijgerechten": {
                     "s": "Për të ndarë",
                     "t": "Pjata anësore"
+                },
+                "supplements": {
+                    "s": "Për copë",
+                    "t": "Mish shtesë"
                 },
                 "burger": {
                     "s": "Signature",
@@ -1101,9 +1190,25 @@ window.FOOD = {
                     "n": "Speca me ajkë",
                     "d": "Speca të turshi të shërbyera me kos të trashë kremoz — të kripur dhe të freskët."
                 },
-                "qebapa": {
-                    "n": "Qebapa — nga Kosova",
-                    "d": "Dhjetë qebapa të shijshme të bëra nga mishi i viçit të aromatizuar, delikatesë shqiptare."
+                "qebab": {
+                    "n": "Qebab",
+                    "d": ""
+                },
+                "qofte": {
+                    "n": "Qofte",
+                    "d": ""
+                },
+                "suxhuk": {
+                    "n": "Suxhuk",
+                    "d": ""
+                },
+                "steak_tataki": {
+                    "n": "Steak tataki",
+                    "d": ""
+                },
+                "kotolet": {
+                    "n": "Kotolet",
+                    "d": ""
                 },
                 "bigbaba": {
                     "n": "BBB — Big Baba",
