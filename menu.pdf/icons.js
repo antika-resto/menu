@@ -21,6 +21,8 @@
     cocktails: svg('<path d="M4 5h16l-8 8-8-8Z"/><path d="M12 13v6"/><path d="M8.5 21h7"/><path d="M17.2 5l-2.4 2.4"/>'),
     // vins (verre à vin)
     wine: svg('<path d="M7 4h10l-1 6.6a4 4 0 0 1-8 0L7 4Z"/><path d="M12 15v4"/><path d="M8.5 20h7"/>'),
+    // carte des vins (même verre à vin)
+    wijnkaart: svg('<path d="M7 4h10l-1 6.6a4 4 0 0 1-8 0L7 4Z"/><path d="M12 15v4"/><path d="M8.5 20h7"/>'),
     // bulles (flûte)
     bubbles: svg('<path d="M9.5 4h5l-.6 8.6a1.9 1.9 0 0 1-3.8 0L9.5 4Z"/><path d="M12 15v5"/><path d="M9.5 21h5"/><path d="M12 7.3v.01M11 9.3v.01M13 9.6v.01"/>'),
     // bières (chope)
