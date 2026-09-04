@@ -1,6 +1,6 @@
 /* Généré automatiquement par l'admin Antika — ne pas éditer à la main. */
 window.EVENT = {
-    "title": "Tropical Night",
+    "title": "WHITE SENSATION",
     "subtitle": "",
     "sections": [
         {
