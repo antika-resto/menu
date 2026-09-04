@@ -512,8 +512,8 @@ window.FOOD = {
                     "d": "Gepekelde paprika's met romige, dikke yoghurt — zout en fris."
                 },
                 "qebap_kajmak": {
-                    "n": "Ćevapi met Kajmak",
-                    "d": "Gegrilde ćevapi geserveerd in warme, romige kajmak."
+                    "n": "Qebab met Kajmak",
+                    "d": "Gegrilde qebab geserveerd in warme, romige kajmak."
                 },
                 "qebab": {
                     "n": "Qebab",
@@ -751,8 +751,8 @@ window.FOOD = {
                     "d": "Poivrons saumurés servis avec un yaourt crémeux et épais."
                 },
                 "qebap_kajmak": {
-                    "n": "Ćevapi au Kajmak",
-                    "d": "Ćevapi grillés servis dans un kajmak chaud et crémeux."
+                    "n": "Qebab au Kajmak",
+                    "d": "Qebab grillés servis dans un kajmak chaud et crémeux."
                 },
                 "qebab": {
                     "n": "Qebab",
@@ -990,8 +990,8 @@ window.FOOD = {
                     "d": "Pickled peppers served with creamy, thick yogurt — salty and fresh."
                 },
                 "qebap_kajmak": {
-                    "n": "Ćevapi with Kajmak",
-                    "d": "Grilled ćevapi served in warm, creamy kajmak."
+                    "n": "Qebab with Kajmak",
+                    "d": "Grilled qebab served in warm, creamy kajmak."
                 },
                 "qebab": {
                     "n": "Qebab",
@@ -1229,8 +1229,8 @@ window.FOOD = {
                     "d": "Speca të turshi të shërbyera me kos të trashë kremoz — të kripur dhe të freskët."
                 },
                 "qebap_kajmak": {
-                    "n": "Qebap në Kajmak",
-                    "d": "Qebap i pjekur në skarë, i servirur në kajmak të ngrohtë dhe kremoz."
+                    "n": "Qebab në Kajmak",
+                    "d": "Qebab i pjekur në skarë, i servirur në kajmak të ngrohtë dhe kremoz."
                 },
                 "qebab": {
                     "n": "Qebab",
