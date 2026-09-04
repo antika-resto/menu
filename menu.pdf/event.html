@@ -67,15 +67,21 @@
   .hero .rule i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block}
 
   /* ---------- Sections ---------- */
-  section{padding-top:34px}
-  .art{width:100%;border-radius:10px;margin-bottom:6px}
-  /* repli quand la section n'a pas de bandeau (créée depuis l'admin) */
+  section{padding-top:46px}
   .sec-title{
     text-align:center;font-family:var(--serif);font-weight:700;
-    font-size:34px;line-height:1.1;padding:14px 0 6px;
-    background:linear-gradient(178deg,#fbe4b4,var(--gold) 45%,var(--gold-deep));
+    font-size:clamp(30px,9vw,44px);line-height:1.06;
+    text-transform:uppercase;letter-spacing:.05em;
+    background:linear-gradient(177deg,#fff2d6 0%,#eec277 34%,var(--gold) 58%,var(--gold-deep) 82%,#6d4712 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 2px 14px rgba(224,172,82,.3));
   }
+  .sec-rule{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px 0 2px}
+  .sec-rule::before,.sec-rule::after{
+    content:"";height:1px;width:56px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .sec-rule i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);display:block}
 
   /* ---------- Sous-titres ---------- */
   .head{
@@ -91,10 +97,17 @@
 
   /* ---------- Lignes ---------- */
   .row{
-    display:flex;align-items:baseline;gap:10px;
+    display:flex;align-items:center;gap:14px;
     padding:9px 0;
   }
   .row + .row{border-top:1px solid rgba(255,255,255,.05)}
+  .row .txt{flex:1 1 auto;min-width:0}
+  .row .line{display:flex;align-items:baseline;gap:10px}
+  .row .ph{
+    flex:0 0 auto;width:60px;height:60px;border-radius:12px;object-fit:cover;
+    border:1px solid rgba(224,172,82,.28);
+    box-shadow:0 6px 18px rgba(0,0,0,.5);
+  }
   .nm{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.2}
   .nm .sub{
     font-family:var(--sans);font-size:11.5px;font-weight:500;
@@ -108,7 +121,7 @@
   .pr small{font-family:var(--sans);font-size:10px;font-weight:500;color:var(--muted);letter-spacing:.02em}
   .note{
     font-size:12.5px;color:var(--muted);line-height:1.5;
-    margin:-3px 0 4px;max-width:46ch;
+    margin:3px 0 0;max-width:46ch;
   }
   .row.nopr .dots{display:none}
 
@@ -170,8 +183,15 @@ function rowHtml(it){
     ? '<span class="dots"></span><span class="pr">'+esc(it.p)+' €'+
       (it.pp ? ' <small>/ pers.</small>' : '')+'</span>'
     : '';
-  return '<div class="row'+(it.p ? '' : ' nopr')+'">'+nom+prix+'</div>'+
-    (it.d ? '<div class="note">'+esc(it.d)+'</div>' : '');
+  /* la photo est facultative : ajoutée depuis le back-office, plat par plat */
+  var photo = it.img
+    ? '<img class="ph" loading="lazy" src="photos/'+esc(it.img)+'.jpg" alt="'+esc(it.n)+'">'
+    : '';
+  return '<div class="row'+(it.p ? '' : ' nopr')+'">'+
+      '<div class="txt"><div class="line">'+nom+prix+'</div>'+
+        (it.d ? '<div class="note">'+esc(it.d)+'</div>' : '')+
+      '</div>'+photo+
+    '</div>';
 }
 
 function render(E){
@@ -186,10 +206,8 @@ function render(E){
 
   (E.sections || []).forEach(function(sec){
     html += '<section id="'+esc(sec.id)+'">';
-    /* bandeau d'origine si la section en a un, sinon titre typographié */
-    html += sec.art
-      ? '<img class="art" loading="lazy" src="event/'+esc(sec.art)+'" alt="'+esc(sec.title || "")+'">'
-      : '<div class="sec-title">'+esc(sec.title || "")+'</div>';
+    html += '<div class="sec-title">'+esc(sec.title || "")+'</div>'+
+            '<div class="sec-rule"><i></i></div>';
     (sec.items || []).forEach(function(it){ html += rowHtml(it); });
     html += '</section>';
   });
