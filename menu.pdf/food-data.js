@@ -207,6 +207,11 @@ window.FOOD = {
                         "sundayonly",
                         "min2"
                     ]
+                },
+                {
+                    "k": "qebap_trad",
+                    "ph": "qebap_trad",
+                    "p": "24,00"
                 }
             ]
         },
@@ -237,6 +242,11 @@ window.FOOD = {
                     "k": "poivrons_saumures",
                     "ph": "poivrons-saumures",
                     "p": "10"
+                },
+                {
+                    "k": "qebap_kajmak",
+                    "ph": "qebap_kajmak",
+                    "p": "18,00"
                 }
             ]
         },
@@ -245,27 +255,27 @@ window.FOOD = {
             "items": [
                 {
                     "k": "qebab",
-                    "ph": null,
+                    "ph": "qebab",
                     "p": "2,00"
                 },
                 {
                     "k": "qofte",
-                    "ph": null,
+                    "ph": "qofte",
                     "p": "2,50"
                 },
                 {
                     "k": "suxhuk",
-                    "ph": null,
+                    "ph": "suxhuk",
                     "p": "6,50"
                 },
                 {
                     "k": "steak_tataki",
-                    "ph": null,
+                    "ph": "steak_tataki",
                     "p": "7,00"
                 },
                 {
                     "k": "kotolet",
-                    "ph": null,
+                    "ph": "kotolet",
                     "p": "8,00"
                 }
             ]
@@ -477,6 +487,10 @@ window.FOOD = {
                     "n": "Artisan Balkan sofra",
                     "d": "Weelderige Balkantafel: gegrild vlees, speciale deegwaren, vers brood en traditionele bijgerechten."
                 },
+                "qebap_trad": {
+                    "n": "Traditioneel Gegrilde Qebap",
+                    "d": "Gegrilde qebap, geserveerd met warm pitabrood, tzatziki, frisse salade en frietjes."
+                },
                 "fli": {
                     "n": "Fli — traditionele Albanese pannenkoek",
                     "d": "Dunne, gestapelde pannenkoeken met romige vulling van yoghurt en kaas."
@@ -496,6 +510,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Gepekelde paprika's met yoghurt",
                     "d": "Gepekelde paprika's met romige, dikke yoghurt — zout en fris."
+                },
+                "qebap_kajmak": {
+                    "n": "Ćevapi met Kajmak",
+                    "d": "Gegrilde ćevapi geserveerd in warme, romige kajmak."
                 },
                 "qebab": {
                     "n": "Qebab",
@@ -708,6 +726,10 @@ window.FOOD = {
                     "n": "Sofra artisanale",
                     "d": "Table balkanique : viandes grillées, pâtes spéciales, pain frais et garnitures traditionnelles."
                 },
+                "qebap_trad": {
+                    "n": "Qebap Traditionnels Grillés",
+                    "d": "Qebap grillés, servis avec pain pita chaud, tzatziki, salade fraîche et frites."
+                },
                 "fli": {
                     "n": "Fli — crêpe albanaise",
                     "d": "Fines crêpes empilées, garniture crémeuse de yaourt et fromage."
@@ -727,6 +749,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Poivrons saumurés au yaourt",
                     "d": "Poivrons saumurés servis avec un yaourt crémeux et épais."
+                },
+                "qebap_kajmak": {
+                    "n": "Ćevapi au Kajmak",
+                    "d": "Ćevapi grillés servis dans un kajmak chaud et crémeux."
                 },
                 "qebab": {
                     "n": "Qebab",
@@ -939,6 +965,10 @@ window.FOOD = {
                     "n": "Artisan Balkan sofra",
                     "d": "A lavish Balkan table: grilled meats, special pastries, fresh bread and traditional sides."
                 },
+                "qebap_trad": {
+                    "n": "Traditional Grilled Qebap",
+                    "d": "Grilled qebap, served with warm pita bread, tzatziki, fresh salad and fries."
+                },
                 "fli": {
                     "n": "Fli — traditional Albanian pancake",
                     "d": "Thin, stacked pancakes with a creamy, savory filling of yogurt and cheese."
@@ -958,6 +988,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Pickled peppers with yogurt",
                     "d": "Pickled peppers served with creamy, thick yogurt — salty and fresh."
+                },
+                "qebap_kajmak": {
+                    "n": "Ćevapi with Kajmak",
+                    "d": "Grilled ćevapi served in warm, creamy kajmak."
                 },
                 "qebab": {
                     "n": "Qebab",
@@ -1170,6 +1204,10 @@ window.FOOD = {
                     "n": "Sofra artizanale",
                     "d": "Sofra ballkanike: mish të pjekur, pjata speciale me brumë, bukë e sapopjekur dhe anësoqërues tradicionalë."
                 },
+                "qebap_trad": {
+                    "n": "Qebap Tradicional të Pjekur në Skarë",
+                    "d": "Qebap të pjekur në skarë, të servirur me pite të ngrohtë, tzatziki, sallatë të freskët dhe patate të skuqura."
+                },
                 "fli": {
                     "n": "Fli — recetë tradicionale kosovare",
                     "d": "Fli të shtresuara, të shërbyera me mbushje kremoze e të kripur me djathë dhe jogurt."
@@ -1189,6 +1227,10 @@ window.FOOD = {
                 "poivrons_saumures": {
                     "n": "Speca me ajkë",
                     "d": "Speca të turshi të shërbyera me kos të trashë kremoz — të kripur dhe të freskët."
+                },
+                "qebap_kajmak": {
+                    "n": "Qebap në Kajmak",
+                    "d": "Qebap i pjekur në skarë, i servirur në kajmak të ngrohtë dhe kremoz."
                 },
                 "qebab": {
                     "n": "Qebab",

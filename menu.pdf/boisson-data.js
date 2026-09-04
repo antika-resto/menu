@@ -716,6 +716,116 @@ window.BOISSON = {
                     "logo": "monkey47.png"
                 }
             ]
+        },
+        {
+            "id": "wijnkaart",
+            "items": [
+                {
+                    "sub": "rood"
+                },
+                {
+                    "k": "wine_lavila_rouge",
+                    "n": "Lavila Rouge 2021 – Pays d’Oc, Languedoc",
+                    "p": "33,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_milani",
+                    "n": "Milani – Puglia Primitivo",
+                    "p": "34,50",
+                    "d": 1
+                },
+                {
+                    "k": "wine_branas",
+                    "n": "Éclats de Branas Grand Poujeaux – Moulis-en-Médoc",
+                    "p": "43,50",
+                    "d": 1
+                },
+                {
+                    "k": "wine_burrascoso",
+                    "n": "Tenuta Tempestosa Burrascoso – Montepulciano d’Abruzzo DOC",
+                    "p": "39,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_peyreau",
+                    "n": "Château Peyreau – Saint-Émilion Grand Cru 2019",
+                    "p": "54,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_labi_vranc",
+                    "n": "Labi Wine Vranç Reserve 2020 – Kosovo",
+                    "p": "37,50",
+                    "d": 1
+                },
+                {
+                    "sub": "wit"
+                },
+                {
+                    "k": "wine_lavila_blanc",
+                    "n": "Lavila Sauvignon / Colombard – Gascogne 2022",
+                    "p": "33,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_custoza",
+                    "n": "Villa Medici Custoza Superiore DOC – Veneto",
+                    "p": "34,50",
+                    "d": 1
+                },
+                {
+                    "k": "wine_chablis",
+                    "n": "Domaine Céline & Frédéric Guéguen – Chablis Cuvée 1975",
+                    "p": "49,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_glas",
+                    "n": "Albert Glas Sauvignon Blanc 2025 – Pfalz",
+                    "p": "39,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_jara",
+                    "n": "La Jara Pinot Grigio – Veneto",
+                    "p": "36,50",
+                    "d": 1
+                },
+                {
+                    "k": "wine_labi_chardo",
+                    "n": "Labi Chardonnay 2023 – Rahovec, Kosovo",
+                    "p": "35,00",
+                    "d": 1
+                },
+                {
+                    "sub": "rose"
+                },
+                {
+                    "k": "wine_lavila_rose",
+                    "n": "Lavila Rosé 2025 – Pays d’Oc",
+                    "p": "33,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_terrasses",
+                    "n": "Terrasses de la Mer – Rosé d’une Nuit, Pays d’Oc",
+                    "p": "34,50",
+                    "d": 1
+                },
+                {
+                    "k": "wine_belambree",
+                    "n": "Domaine de Belambrée « Les Éphémères » Rosé 2025 – Coteaux d’Aix-en-Provence",
+                    "p": "37,00",
+                    "d": 1
+                },
+                {
+                    "k": "wine_labi_rose",
+                    "n": "Labi Wine Rosé Reserve 2024 – Rahovec, Kosovo",
+                    "p": "35,00",
+                    "d": 1
+                }
+            ]
         }
     ],
     "sharedTail": [
@@ -758,12 +868,19 @@ window.BOISSON = {
                 "spirits": {
                     "s": "Rum · Whisky · Vodka · Gin",
                     "t": "Sterke drank"
+                },
+                "wijnkaart": {
+                    "s": "Rood · Wit · Rosé",
+                    "t": "Wijnkaart"
                 }
             },
             "subs": {
                 "gin": "Gin",
                 "rum": "Rum",
+                "wit": "Wit",
                 "mule": "Mule",
+                "rood": "Rood",
+                "rose": "Rosé",
                 "house": "Huisfavorieten",
                 "vodka": "Vodka",
                 "whiskey": "Whisky",
@@ -795,7 +912,23 @@ window.BOISSON = {
                 "dominican_mule": "Rum",
                 "london_mule": "Gin",
                 "mexican_mule": "Tequila",
-                "fire_mule": "Whisky"
+                "fire_mule": "Whisky",
+                "wine_lavila_rouge": "Selectie huiswijn · Grenache & Merlot. Soepel en fruitig, met rijp rood fruit, fijne kruiden en een zachte afdronk.",
+                "wine_milani": "Sangiovese & Primitivo. Vol en soepel, met rijp rood fruit, zachte kruidigheid en fluweelzachte tannines.",
+                "wine_branas": "Cabernet Sauvignon & Merlot. Elegant en vol, met donker fruit, fijne kruiden en een zachte, lange afdronk.",
+                "wine_burrascoso": "Montepulciano. Vol en karaktervol, met rijp donker fruit, subtiele kruiden en zachte tannines.",
+                "wine_peyreau": "Merlot & Cabernet Franc. Elegant en vol, met rijp donker fruit, subtiele kruiden en een fluweelzacht karakter.",
+                "wine_labi_vranc": "Vranç. Krachtig en vol, met donker fruit, kruidige toetsen en een rijk, fluweelzacht karakter.",
+                "wine_lavila_blanc": "Selectie huiswijn · Sauvignon Blanc & Colombard. Fris en levendig, met citrus, exotisch fruit en een aangename, verkwikkende toets.",
+                "wine_custoza": "Trebbiano Toscano, Garganega, Bianca Fernanda & Trebbianello. Vol en rond, met rijp steenfruit, florale toetsen en een subtiele kruidigheid.",
+                "wine_chablis": "Chardonnay. Fris en verfijnd, met citrus, rijp wit fruit en een elegante mineraliteit.",
+                "wine_glas": "100% Sauvignon Blanc. Fris en expressief, met citrus, sappig tropisch fruit en een verfijnde aromatische toets.",
+                "wine_jara": "100% Pinot Grigio. Fris en elegant, met sappig wit fruit, florale toetsen en een verfijnd karakter.",
+                "wine_labi_chardo": "Chardonnay. Elegant en vol, met groene appel, exotisch fruit en een subtiele toets van eikenhout.",
+                "wine_lavila_rose": "Selectie huiswijn · Cinsault & Syrah. Licht en verfrissend, met sappig rood fruit, delicate bloemige aroma’s en een aangenaam droge stijl.",
+                "wine_terrasses": "80% Grenache Noir & 20% Syrah. Licht en zomers, met frisse framboos, rood fruit en een verfijnd kruidig accent.",
+                "wine_belambree": "Grenache, Syrah & Cinsault. Elegant en verfijnd, met fris rood fruit, florale aroma’s en een zachte Provençaalse finesse.",
+                "wine_labi_rose": "80% Prokupë & 20% Vranç. Fris en elegant, met aardbei, kers en delicate florale aroma’s."
             }
         },
         "fr": {
@@ -832,12 +965,19 @@ window.BOISSON = {
                 "spirits": {
                     "s": "Rhum · Whisky · Vodka · Gin",
                     "t": "Spiritueux"
+                },
+                "wijnkaart": {
+                    "s": "Rouge · Blanc · Rosé",
+                    "t": "Carte des vins"
                 }
             },
             "subs": {
                 "gin": "Gin",
                 "rum": "Rhum",
+                "wit": "Blanc",
                 "mule": "Mule",
+                "rood": "Rouge",
+                "rose": "Rosé",
                 "house": "Coups de cœur maison",
                 "vodka": "Vodka",
                 "whiskey": "Whisky",
@@ -869,7 +1009,23 @@ window.BOISSON = {
                 "dominican_mule": "Rhum",
                 "london_mule": "Gin",
                 "mexican_mule": "Tequila",
-                "fire_mule": "Whisky"
+                "fire_mule": "Whisky",
+                "wine_lavila_rouge": "Sélection maison · Grenache & Merlot. Souple et fruité, avec des fruits rouges mûrs, des épices fines et une finale douce.",
+                "wine_milani": "Sangiovese & Primitivo. Ample et souple, avec des fruits rouges mûrs, une épice douce et des tanins veloutés.",
+                "wine_branas": "Cabernet Sauvignon & Merlot. Élégant et ample, avec des fruits noirs, des épices fines et une finale douce et longue.",
+                "wine_burrascoso": "Montepulciano. Ample et de caractère, avec des fruits noirs mûrs, des épices subtiles et des tanins souples.",
+                "wine_peyreau": "Merlot & Cabernet Franc. Élégant et ample, avec des fruits noirs mûrs, des épices subtiles et un caractère velouté.",
+                "wine_labi_vranc": "Vranç. Puissant et ample, avec des fruits noirs, des notes épicées et un caractère riche et velouté.",
+                "wine_lavila_blanc": "Sélection maison · Sauvignon Blanc & Colombard. Frais et vif, avec des agrumes, des fruits exotiques et une touche désaltérante.",
+                "wine_custoza": "Trebbiano Toscano, Garganega, Bianca Fernanda & Trebbianello. Ample et rond, avec des fruits à noyau mûrs, des notes florales et une épice subtile.",
+                "wine_chablis": "Chardonnay. Frais et raffiné, avec des agrumes, des fruits blancs mûrs et une élégante minéralité.",
+                "wine_glas": "100% Sauvignon Blanc. Frais et expressif, avec des agrumes, des fruits tropicaux juteux et une touche aromatique raffinée.",
+                "wine_jara": "100% Pinot Grigio. Frais et élégant, avec des fruits blancs juteux, des notes florales et un caractère raffiné.",
+                "wine_labi_chardo": "Chardonnay. Élégant et ample, avec de la pomme verte, des fruits exotiques et une subtile touche de chêne.",
+                "wine_lavila_rose": "Sélection maison · Cinsault & Syrah. Léger et rafraîchissant, avec des fruits rouges juteux, des arômes floraux délicats et un style agréablement sec.",
+                "wine_terrasses": "80% Grenache Noir & 20% Syrah. Léger et estival, avec de la framboise fraîche, des fruits rouges et un accent épicé raffiné.",
+                "wine_belambree": "Grenache, Syrah & Cinsault. Élégant et raffiné, avec des fruits rouges frais, des arômes floraux et une douce finesse provençale.",
+                "wine_labi_rose": "80% Prokupë & 20% Vranç. Frais et élégant, avec de la fraise, de la cerise et des arômes floraux délicats."
             }
         },
         "en": {
@@ -906,12 +1062,19 @@ window.BOISSON = {
                 "spirits": {
                     "s": "Rum · Whisky · Vodka · Gin",
                     "t": "Spirits"
+                },
+                "wijnkaart": {
+                    "s": "Red · White · Rosé",
+                    "t": "Wine List"
                 }
             },
             "subs": {
                 "gin": "Gin",
                 "rum": "Rum",
+                "wit": "White",
                 "mule": "Mule",
+                "rood": "Red",
+                "rose": "Rosé",
                 "house": "House favorites",
                 "vodka": "Vodka",
                 "whiskey": "Whiskey",
@@ -939,7 +1102,23 @@ window.BOISSON = {
                 "dominican_mule": "Rum",
                 "london_mule": "Gin",
                 "mexican_mule": "Tequila",
-                "fire_mule": "Whiskey"
+                "fire_mule": "Whiskey",
+                "wine_lavila_rouge": "House selection · Grenache & Merlot. Supple and fruity, with ripe red fruit, fine spices and a soft finish.",
+                "wine_milani": "Sangiovese & Primitivo. Full and supple, with ripe red fruit, gentle spice and velvety tannins.",
+                "wine_branas": "Cabernet Sauvignon & Merlot. Elegant and full, with dark fruit, fine spices and a soft, long finish.",
+                "wine_burrascoso": "Montepulciano. Full and characterful, with ripe dark fruit, subtle spices and soft tannins.",
+                "wine_peyreau": "Merlot & Cabernet Franc. Elegant and full, with ripe dark fruit, subtle spices and a velvety character.",
+                "wine_labi_vranc": "Vranç. Powerful and full, with dark fruit, spicy notes and a rich, velvety character.",
+                "wine_lavila_blanc": "House selection · Sauvignon Blanc & Colombard. Fresh and lively, with citrus, exotic fruit and a pleasantly refreshing touch.",
+                "wine_custoza": "Trebbiano Toscano, Garganega, Bianca Fernanda & Trebbianello. Full and round, with ripe stone fruit, floral notes and subtle spice.",
+                "wine_chablis": "Chardonnay. Fresh and refined, with citrus, ripe white fruit and an elegant minerality.",
+                "wine_glas": "100% Sauvignon Blanc. Fresh and expressive, with citrus, juicy tropical fruit and a refined aromatic touch.",
+                "wine_jara": "100% Pinot Grigio. Fresh and elegant, with juicy white fruit, floral notes and a refined character.",
+                "wine_labi_chardo": "Chardonnay. Elegant and full, with green apple, exotic fruit and a subtle touch of oak.",
+                "wine_lavila_rose": "House selection · Cinsault & Syrah. Light and refreshing, with juicy red fruit, delicate floral aromas and a pleasantly dry style.",
+                "wine_terrasses": "80% Grenache Noir & 20% Syrah. Light and summery, with fresh raspberry, red fruit and a refined spicy accent.",
+                "wine_belambree": "Grenache, Syrah & Cinsault. Elegant and refined, with fresh red fruit, floral aromas and a soft Provençal finesse.",
+                "wine_labi_rose": "80% Prokupë & 20% Vranç. Fresh and elegant, with strawberry, cherry and delicate floral aromas."
             }
         },
         "al": {
@@ -976,12 +1155,19 @@ window.BOISSON = {
                 "spirits": {
                     "s": "Rum · Whisky · Vodka · Gin",
                     "t": "Pije alkoolike"
+                },
+                "wijnkaart": {
+                    "s": "Të kuqe · Të bardha · Rosé",
+                    "t": "Lista e Verërave"
                 }
             },
             "subs": {
                 "gin": "Gin",
                 "rum": "Rum",
+                "wit": "Të bardha",
                 "mule": "Mule",
+                "rood": "Të kuqe",
+                "rose": "Rosé",
                 "house": "Të preferuarat e shtëpisë",
                 "vodka": "Vodka",
                 "whiskey": "Whisky",
@@ -1013,7 +1199,23 @@ window.BOISSON = {
                 "dominican_mule": "Rum",
                 "london_mule": "Gin",
                 "mexican_mule": "Tekila",
-                "fire_mule": "Whisky"
+                "fire_mule": "Whisky",
+                "wine_lavila_rouge": "Përzgjedhja e shtëpisë · Grenache & Merlot. I butë dhe frutor, me fruta të kuqe të pjekura, erëza të imëta dhe një mbyllje të butë.",
+                "wine_milani": "Sangiovese & Primitivo. I plotë dhe i butë, me fruta të kuqe të pjekura, erëza të buta dhe tanine kadifeje.",
+                "wine_branas": "Cabernet Sauvignon & Merlot. Elegant dhe i plotë, me fruta të errëta, erëza të imëta dhe një mbyllje të butë e të gjatë.",
+                "wine_burrascoso": "Montepulciano. I plotë dhe me karakter, me fruta të errëta të pjekura, erëza delikate dhe tanine të buta.",
+                "wine_peyreau": "Merlot & Cabernet Franc. Elegant dhe i plotë, me fruta të errëta të pjekura, erëza delikate dhe një karakter kadifeje.",
+                "wine_labi_vranc": "Vranç. I fuqishëm dhe i plotë, me fruta të errëta, nota erëzash dhe një karakter të pasur e kadifeje.",
+                "wine_lavila_blanc": "Përzgjedhja e shtëpisë · Sauvignon Blanc & Colombard. I freskët dhe i gjallë, me agrume, fruta ekzotike dhe një prekje freskuese.",
+                "wine_custoza": "Trebbiano Toscano, Garganega, Bianca Fernanda & Trebbianello. I plotë dhe i rrumbullakët, me fruta guri të pjekura, nota lulesh dhe erëza delikate.",
+                "wine_chablis": "Chardonnay. I freskët dhe i rafinuar, me agrume, fruta të bardha të pjekura dhe një mineralitet elegant.",
+                "wine_glas": "100% Sauvignon Blanc. I freskët dhe shprehës, me agrume, fruta tropikale të lëngshme dhe një prekje aromatike të rafinuar.",
+                "wine_jara": "100% Pinot Grigio. I freskët dhe elegant, me fruta të bardha të lëngshme, nota lulesh dhe një karakter të rafinuar.",
+                "wine_labi_chardo": "Chardonnay. Elegant dhe i plotë, me mollë të gjelbër, fruta ekzotike dhe një prekje delikate lisi.",
+                "wine_lavila_rose": "Përzgjedhja e shtëpisë · Cinsault & Syrah. I lehtë dhe freskues, me fruta të kuqe të lëngshme, aroma delikate lulesh dhe një stil këndshëm i thatë.",
+                "wine_terrasses": "80% Grenache Noir & 20% Syrah. I lehtë dhe veror, me mjedër të freskët, fruta të kuqe dhe një theks të rafinuar erëzash.",
+                "wine_belambree": "Grenache, Syrah & Cinsault. Elegant dhe i rafinuar, me fruta të kuqe të freskëta, aroma lulesh dhe një finesë të butë provansale.",
+                "wine_labi_rose": "80% Prokupë & 20% Vranç. I freskët dhe elegant, me luleshtrydhe, qershi dhe aroma delikate lulesh."
             }
         }
     }
