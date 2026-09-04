@@ -208,6 +208,10 @@ function render(E){
 
 /* Chargement anti-cache (même principe que les autres pages) */
 (function(){
+  /* Aperçu depuis le back-office : les données fraîches sont injectées
+     dans la page avant ce script, on les utilise telles quelles. */
+  if(window.EVENT){ render(window.EVENT); return; }
+
   var s = document.createElement("script");
   s.src = "event-data.js?v=" + Date.now();
   s.onload = function(){
