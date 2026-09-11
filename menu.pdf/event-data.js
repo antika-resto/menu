@@ -276,13 +276,13 @@ window.EVENT = {
         },
         {
             "id": "bbq",
-            "title": "BBQ Menu",
+            "title": "RESTO",
             "items": [
                 {
-                    "n": "Island Burger",
+                    "n": "Salade Calamares",
                     "p": "15",
-                    "d": "Our signature house burger featuring grilled beef burger, double cheese and fresh vegetables.",
-                    "img": "island_burger"
+                    "d": "Kallamarë me sallatë të freskët dhe salcë tartar",
+                    "img": "island_burger.png"
                 },
                 {
                     "n": "Menze Mix",
