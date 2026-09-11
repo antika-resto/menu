@@ -275,33 +275,38 @@ window.EVENT = {
                     "n": "Salade Calamares",
                     "p": "15",
                     "d": "Kallamarë me sallatë të freskët dhe salcë tartar",
-                    "img": "island_burger.jpg"
+                    "img": "salade_calamares"
                 },
                 {
                     "n": "Kroketa djathi",
                     "p": "15",
-                    "d": "Kroketa djathi me sallatë të freskët"
+                    "d": "Kroketa djathi me sallatë të freskët",
+                    "img": "kroketa_djathi"
                 },
                 {
                     "n": "Fileto pule në zgarë",
                     "p": "25",
-                    "d": "Fileto pule me gratin, perime të ngrohta dhe salcë curry"
+                    "d": "Fileto pule me gratin, perime të ngrohta dhe salcë curry",
+                    "img": "fileto_pule"
                 },
                 {
                     "n": "Kombinim Shqip 🇦🇱",
                     "p": "30",
-                    "d": "Pjatë e kombinuar me 4 qebapa, 4 qofte, 1 suxhuk, 1 copë fli dhe tzatziki"
+                    "d": "Pjatë e kombinuar me 4 qebapa, 4 qofte, 1 suxhuk, 1 copë fli dhe tzatziki",
+                    "img": "kombinim_shqip"
                 },
                 {
                     "n": "Porcion fli 🇦🇱",
                     "p": "15",
-                    "d": "Porcion fli me mjaltë dhe djathë"
+                    "d": "Porcion fli me mjaltë dhe djathë",
+                    "img": "porcion_fli"
                 },
                 {
                     "n": "Mezze mix Baba Grill 🇦🇱",
                     "p": "25",
                     "pp": true,
-                    "d": "Pjatë e bollshme për t’u ndarë, me miks mishrash të pjekur në skarë, sallata, garnitura dhe salca. Ideale për ta shijuar së bashku me familjen dhe miqtë, nën atmosferën e muzikës live. ( MINIMUM 2 persona )"
+                    "d": "Pjatë e bollshme për t’u ndarë, me miks mishrash të pjekur në skarë, sallata, garnitura dhe salca. Ideale për ta shijuar së bashku me familjen dhe miqtë, nën atmosferën e muzikës live. ( MINIMUM 2 persona )",
+                    "img": "mezze_baba_grill"
                 }
             ]
         }
