@@ -33,13 +33,6 @@ window.EVENT = {
                     "p": "12",
                     "d": "Virgin 0.0 % — 10 €",
                     "img": "tropical_sunrise"
-                },
-                {
-                    "n": "Pink Island",
-                    "sub": "gin",
-                    "p": "12",
-                    "d": "Virgin 0.0 % — 10 €",
-                    "img": "pink_island"
                 }
             ]
         },
@@ -285,49 +278,24 @@ window.EVENT = {
                     "img": "island_burger.png"
                 },
                 {
-                    "n": "Menze Mix",
-                    "sub": "min. 2 pers.",
-                    "p": "32",
-                    "pp": true,
-                    "d": "Traditional grilled Albanian mixed mezze, house sauce and fresh summer salad.",
-                    "img": "menze_mix"
+                    "n": "Kroketa djathi",
+                    "p": "15",
+                    "d": "Kroketa djathi me sallatë të freskët"
                 },
                 {
-                    "n": "BBQ Mix",
-                    "p": "29",
-                    "pp": true,
-                    "d": "A varied selection from our BBQ specialties and fresh salad bar.",
-                    "img": "bbq_mix"
-                }
-            ]
-        },
-        {
-            "id": "shisha",
-            "title": "Shisha Lovers",
-            "items": [
-                {
-                    "h": "35 €"
+                    "n": "Fileto pule në zgarë",
+                    "p": "25",
+                    "d": "Fileto pule me gratin, perime të ngrohta dhe salcë curry"
                 },
                 {
-                    "n": "Mi Amor"
+                    "n": "Kombinim Shqip 🇦🇱",
+                    "p": "30",
+                    "d": "Pjatë e kombinuar me 4 qebapa, 4 qofte, 1 suxhuk, 1 copë fli dhe tzatziki"
                 },
                 {
-                    "n": "Love 66"
-                },
-                {
-                    "n": "Lady Killer"
-                },
-                {
-                    "n": "Raisin Royal"
-                },
-                {
-                    "n": "Blueberry Ice"
-                },
-                {
-                    "h": "10 €"
-                },
-                {
-                    "n": "Head change"
+                    "n": "Porcion fli 🇦🇱",
+                    "p": "15",
+                    "d": "Porcion fli me mjaltë dhe djathë"
                 }
             ]
         }
