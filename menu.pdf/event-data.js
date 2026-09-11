@@ -73,12 +73,13 @@ window.EVENT = {
                 },
                 {
                     "n": "Gin Bombay",
-                    "p": "10"
+                    "p": "10",
+                    "img": "logos/gin-bombay.png"
                 },
                 {
                     "n": "Yeni Raki",
                     "p": "10",
-                    "img": "logos/raki.png"
+                    "img": "logos/yeni-raki.png"
                 },
                 {
                     "n": "Bellini",
@@ -87,7 +88,8 @@ window.EVENT = {
                 },
                 {
                     "n": "Cava Bubbels",
-                    "p": "10"
+                    "p": "10",
+                    "img": "cava"
                 },
                 {
                     "h": "In bottle",
@@ -115,7 +117,8 @@ window.EVENT = {
                 },
                 {
                     "n": "Gin Bombay",
-                    "p": "130"
+                    "p": "130",
+                    "img": "logos/gin-bombay.png"
                 },
                 {
                     "n": "Belvedere",
@@ -228,17 +231,17 @@ window.EVENT = {
                 {
                     "n": "White",
                     "p": "8",
-                    "img": "drinks/wine_house.jpg"
+                    "img": "wine_white"
                 },
                 {
                     "n": "Red",
                     "p": "8",
-                    "img": "drinks/wine_house.jpg"
+                    "img": "wine_red"
                 },
                 {
                     "n": "Rosé",
                     "p": "8",
-                    "img": "drinks/wine_house.jpg"
+                    "img": "wine_rose"
                 },
                 {
                     "n": "Bellini",
@@ -247,7 +250,8 @@ window.EVENT = {
                 },
                 {
                     "n": "Cava",
-                    "p": "10"
+                    "p": "10",
+                    "img": "cava"
                 },
                 {
                     "h": "Wine by the bottle"
@@ -255,17 +259,17 @@ window.EVENT = {
                 {
                     "n": "White",
                     "p": "45",
-                    "img": "drinks/wine_house.jpg"
+                    "img": "wine_white"
                 },
                 {
                     "n": "Red",
                     "p": "45",
-                    "img": "drinks/wine_house.jpg"
+                    "img": "wine_red"
                 },
                 {
                     "n": "Rosé",
                     "p": "45",
-                    "img": "drinks/wine_house.jpg"
+                    "img": "wine_rose"
                 }
             ]
         },
