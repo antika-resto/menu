@@ -193,7 +193,10 @@ function rowHtml(it){
      dessinés pour le menu clair, ils disparaîtraient sur fond noir. */
   var photo = '';
   if(it.img){
-    var src = it.img.indexOf('/') >= 0 ? it.img : 'photos/'+it.img+'.jpg';
+    /* "drinks/x.jpg" -> tel quel · "x.jpg" -> photos/x.jpg · "x" -> photos/x.jpg */
+    var src = it.img.indexOf('/') >= 0
+      ? it.img
+      : 'photos/' + (/\.(jpe?g|png|webp)$/i.test(it.img) ? it.img : it.img + '.jpg');
     var estLogo = src.indexOf('logos/') === 0;
     photo = '<img class="ph'+(estLogo ? ' logo' : '')+'" loading="lazy" src="'+
       esc(src)+'" alt="'+esc(it.n)+'">';
