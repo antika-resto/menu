@@ -198,7 +198,8 @@ window.EVENT = {
                 },
                 {
                     "n": "Orange juice",
-                    "p": "5"
+                    "p": "5",
+                    "img": "logos/mm-orange.png"
                 },
                 {
                     "n": "Apple cherry",
