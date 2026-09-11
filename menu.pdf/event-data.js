@@ -8,6 +8,13 @@ window.EVENT = {
             "title": "Cocktails & Mocktails",
             "items": [
                 {
+                    "n": "Mojito Strawberry",
+                    "sub": "rhum",
+                    "p": "12",
+                    "d": "Virgin 0.0 % — 10 €",
+                    "img": "mojito_straw"
+                },
+                {
                     "n": "Aperol Spritz",
                     "p": "12",
                     "d": "Virgin 0.0 % — 10 €",
@@ -19,13 +26,6 @@ window.EVENT = {
                     "p": "12",
                     "d": "Virgin 0.0 % — 10 €",
                     "img": "mojito"
-                },
-                {
-                    "n": "Mojito Strawberry",
-                    "sub": "rhum",
-                    "p": "12",
-                    "d": "Virgin 0.0 % — 10 €",
-                    "img": "mojito_straw"
                 },
                 {
                     "n": "Tropical Sunrise",
@@ -275,7 +275,7 @@ window.EVENT = {
                     "n": "Salade Calamares",
                     "p": "15",
                     "d": "Kallamarë me sallatë të freskët dhe salcë tartar",
-                    "img": "island_burger.png"
+                    "img": "island_burger.jpg"
                 },
                 {
                     "n": "Kroketa djathi",
@@ -296,6 +296,12 @@ window.EVENT = {
                     "n": "Porcion fli 🇦🇱",
                     "p": "15",
                     "d": "Porcion fli me mjaltë dhe djathë"
+                },
+                {
+                    "n": "Mezze mix Baba Grill 🇦🇱",
+                    "p": "25",
+                    "pp": true,
+                    "d": "Pjatë e bollshme për t’u ndarë, me miks mishrash të pjekur në skarë, sallata, garnitura dhe salca. Ideale për ta shijuar së bashku me familjen dhe miqtë, nën atmosferën e muzikës live. ( MINIMUM 2 persona )"
                 }
             ]
         }
